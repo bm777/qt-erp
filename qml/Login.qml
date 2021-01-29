@@ -92,5 +92,56 @@ logiciel"
 
         // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+
+        Rectangle {
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 300
+            height: 100
+            y: parent.height * 0.7
+            color: "transparent"
+
+            Canvas {
+                anchors.fill: parent
+                id: canvas
+
+                onPaint: {
+                    var c = canvas.getContext("2d");
+                    var w = parent.width;
+                    var h = parent.height;
+
+
+                    //++++drawing ouir custom button+++++++
+                    c.fillStyle = "#3259a8";    // color of filling
+                    c.lineWidth = 2             // width of drawer line
+                    c.beginPath();
+
+                    // draw and move and lineTo
+                    c.moveTo(0, h/5);
+                    c.lineTo(0, h);
+                    c.lineTo(w-h/5, h);
+                    c.lineTo(w, 4*h/5);
+                    c.lineTo(w, 0);
+                    c.lineTo(h/5, 0);
+
+                    // close path
+                    c.closePath();
+
+
+                    c.fill();
+                    c.clip();
+                    print("inside canvas" + w)
+                }
+            }
+            Text {
+                id: btn
+                text: "Poursuivre"
+                font { family: f; pointSize: 22}
+                color: "white"
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
+
+
     }
 }
