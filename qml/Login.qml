@@ -8,6 +8,7 @@ Item {
     property string username: ""
     property string password: ""
     property string f: "Courier New"
+    property bool act: false
 
 
     Item {
@@ -100,9 +101,40 @@ logiciel"
             y: parent.height * 0.7
             color: "transparent"
 
+
+
+
             Canvas {
                 anchors.fill: parent
                 id: canvas
+                property string c_inside: "#3259a8"
+
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+
+//                    onEntered: {
+//                        canvas.c_inside   = "#403259a8";
+//                        print("inside rectnagle");
+//                    }
+//                    onExited: {
+//                        canvas.c_inside = "#3259a8";
+//                        print("exited");
+//                    }
+                    onClicked: {
+
+                        act = true
+                        // ++++++++++++++
+                        if("nani" == _username.text && "plokplok" == _password.text) {
+                            btn.text = "..."
+                            username = _username.text
+                            password = _password.text
+                        }
+
+
+                    }
+
+                }
 
                 onPaint: {
                     var c = canvas.getContext("2d");
@@ -111,8 +143,8 @@ logiciel"
 
 
                     //++++drawing ouir custom button+++++++
-                    c.fillStyle = "#3259a8";    // color of filling
-                    c.lineWidth = 2             // width of drawer line
+                    c.fillStyle = canvas.c_inside;      // color of filling
+                    c.lineWidth = 2                     // width of drawer line
                     c.beginPath();
 
                     // draw and move and lineTo
@@ -129,7 +161,6 @@ logiciel"
 
                     c.fill();
                     c.clip();
-                    print("inside canvas" + w)
                 }
             }
             Text {
@@ -143,5 +174,17 @@ logiciel"
         }
 
 
+    }
+    // ++++++++++++++++++++++++++++++++++++
+    SequentialAnimation {
+        running: true
+        PropertyAnimation {
+            target: login
+            property: "x"
+            from: 0
+            to: 1600
+            duration: 1000
+            easing.type: Easing.InOutQuad
+        }
     }
 }
