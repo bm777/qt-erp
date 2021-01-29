@@ -3,8 +3,13 @@ import QtQuick.Window 2.13
 
 Window {
     title: qsTr("ERP")
-    width: 640
-    height: 480
+    width: 1600
+    height: 840
+//    visibility: "FullScreen"
     visible: true
+
+    Login {
+        id: login
+    }
 
 }
