@@ -1,0 +1,59 @@
+import QtQuick 2.0
+
+Item {
+    id: root
+    property real _width: 200
+    property real _height: 100
+    property string f: "Courier New"
+    property string btn_text: "Test"
+    property color btn_color: "#ffffff"
+    property color btn_text_color: "#ffffff"
+
+    width: btn.width * 1.2
+    height: _height
+
+    Rectangle {
+        anchors.fill: parent
+        width: root.width
+        height: root.height
+        color: "transparent"
+
+        Canvas {
+            anchors.fill: parent
+            id: canvas
+
+            onPaint: {
+                var c = canvas.getContext("2d");
+                var w = parent.width;
+                var h = parent.height;
+
+                //++++drawing ouir custom button+++++++
+                c.fillStyle = root.btn_color;      // color of filling
+                c.lineWidth = 2                     // width of drawer line
+                c.beginPath();
+
+                // draw and move and lineTo
+                c.moveTo(0, h/5);
+                c.lineTo(0, h);
+                c.lineTo(w-h/5, h);
+                c.lineTo(w, 4*h/5);
+                c.lineTo(w, 0);
+                c.lineTo(h/5, 0);
+
+                // close path
+                c.closePath();
+
+                c.fill();
+                c.clip();
+            }
+        }
+        Text {
+            id: btn
+            text: root.btn_text
+            font { family: f; pointSize: 22}
+            color: root.btn_text_color
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+        }
+    }
+}

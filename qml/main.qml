@@ -5,26 +5,39 @@ Window {
     title: qsTr("ERP")
     width: 1600
     height: 840
-//    visibility: "FullScreen"
+    visibility: "FullScreen"
     visible: true
     // ++++++++++++++++++++++++++++++++++++++
 
 
 
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Busy {
+        id: busy
+        visible: false
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+    }
+
     Login {
         id: login
         x: 0
         visible: {
             if (login.username == "nani" && login.password == "plokplok") {
-                return false
+                busy.visible = true
+                return  false
             }
             else{
-                return true
+                return  false //true
             }
         }
 
     }
+
+    Erp {
+        id: erp
+    }
+
 
 
 
