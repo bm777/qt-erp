@@ -7,7 +7,7 @@ Item {
     // +++++++++++++++++++++++++++++++++++++++
     property string username: ""
     property string password: ""
-
+    property string f: "Courier New"
     property bool act: false
 
 

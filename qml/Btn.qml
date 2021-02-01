@@ -2,13 +2,15 @@ import QtQuick 2.0
 
 Item {
     id: root
-    property real _width: 200
-    property real _height: 100
+//    property real _width: 200
+//    property real _height: 100
     property string f: "Courier New"
     property string btn_text: "Test"
     property color btn_color: "#ffffff"
     property color btn_text_color: "#ffffff"
     property bool clicked: false
+//    property string name: ""
+    property bool external: false
 
     width: btn.width * 1.2
     height: _height
@@ -22,39 +24,21 @@ Item {
         Canvas {
             anchors.fill: parent
             id: canvas
-
             MouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
                 onEntered: {
-                    if(root.clicked){
-//                        root.btn_color = "red"
-                        print("clicked on entered")
-                    }
-                    else {
-                        root.btn_color = "#ff0000"
-                        canvas.requestPaint();
-                    }
+//                    canvas.requestPaint();
                 }
                 onClicked: {
-                    if(root.clicked){
-//                        root.btn_color = "red"
-                        root.clicked = true
-                    }
-                    else {
-//                        root.btn_color = "#ff4285f4"
+                        if(root.clicked == false){
+                            root.clicked = true
+                            canvas.requestPaint();
+                        }
 //                        canvas.requestPaint();
-                    }
                 }
                 onExited: {
-                    if(root.clicked){
-//                        root.btn_color = "red"
-//                        root.clicked = true
-                    }
-                    else {
-                        root.btn_color = "#ff4285f4"
-                        canvas.requestPaint();
-                    }
+//                    canvas.requestPaint();
                 }
 
             }
@@ -90,6 +74,7 @@ Item {
             color: root.btn_text_color
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
+            onColorChanged: canvas.requestPaint()
         }
     }
 }
