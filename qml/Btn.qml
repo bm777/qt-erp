@@ -8,6 +8,7 @@ Item {
     property string btn_text: "Test"
     property color btn_color: "#ffffff"
     property color btn_text_color: "#ffffff"
+    property bool clicked: false
 
     width: btn.width * 1.2
     height: _height
@@ -22,6 +23,41 @@ Item {
             anchors.fill: parent
             id: canvas
 
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onEntered: {
+                    if(root.clicked){
+//                        root.btn_color = "red"
+                        print("clicked on entered")
+                    }
+                    else {
+                        root.btn_color = "#ff0000"
+                        canvas.requestPaint();
+                    }
+                }
+                onClicked: {
+                    if(root.clicked){
+//                        root.btn_color = "red"
+                        root.clicked = true
+                    }
+                    else {
+//                        root.btn_color = "#ff4285f4"
+//                        canvas.requestPaint();
+                    }
+                }
+                onExited: {
+                    if(root.clicked){
+//                        root.btn_color = "red"
+//                        root.clicked = true
+                    }
+                    else {
+                        root.btn_color = "#ff4285f4"
+                        canvas.requestPaint();
+                    }
+                }
+
+            }
             onPaint: {
                 var c = canvas.getContext("2d");
                 var w = parent.width;

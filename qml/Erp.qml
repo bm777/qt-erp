@@ -23,8 +23,9 @@ Item {
             x: parent.width * 0.02
             height: header.height
             btn_text: "<b>BD</b> <b>P</b>roduits"
-            btn_color: "#ffffff"
-            btn_text_color: "#ff4285f4"
+            btn_color: "#ff4285f4"
+            btn_text_color: "#ffffff"
+
         }
         Btn {
             id: btn_client
