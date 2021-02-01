@@ -36,6 +36,7 @@ Window {
 
     Erp {
         id: erp
+        visible: true
     }
 
 
