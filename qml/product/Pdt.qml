@@ -14,6 +14,8 @@ Rectangle {
     property real tva: 19.25
     property string rmq: "Payement en liquide"
 
+    property variant win;
+
     Rectangle {
         anchors.fill: parent
         color: color_rect
@@ -99,7 +101,11 @@ Rectangle {
             change.color = "transparent"
         }
         onClicked: {
-            ChildPdt.visible = true
+            var component = Qt.createComponent("ChildPdt.qml");
+            win = component.createObject(root);
+            win.ref = root.ref;
+            win.show();
+
         }
     }
     Rectangle {

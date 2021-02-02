@@ -145,6 +145,34 @@ Item {
                 color: "#ff4285f4"
             }
         }
+        Text {
+            text: "Recherche par"
+            y: search.y + search.height / 3
+            x: search.x - search.width * 2.4/4
+            color: "#80000000"
+            font { family: f}
+        }
+        TextField {
+            id: search
+            width: erp.width * 0.12
+            height: erp.height * 0.04
+            y: product.y - height * 1.5
+            x: erp.width * 0.73
+            placeholderText: "Réf. Ex: P00077"
+            color: "black"
+            horizontalAlignment: TextField.Center
+            font { family: f; pointSize: 10}
+            background: Rectangle {
+                anchors.fill: parent
+                color: "transparent"
+//                border.color: "lightgray"
+            }
+            Rectangle{
+                y: parent.height * 0.8
+                width: parent.width
+                height: 1; color: "lightgray"
+            }
+        }
 
         Product {
             id: product
@@ -164,6 +192,7 @@ Item {
             width: parent.width * 0.7
             clip: true
 
+
             Column {
                 id: col
                 spacing: 10
@@ -173,6 +202,15 @@ Item {
 
                     Pdt {
                         ref: "P0000"+index
+                        visible: {
+                            var str = search.text
+                            if(str === ""){
+                                return true
+                            } else if(ref.includes(str)){
+                                return true
+                         }else return false
+                        }
+
                         width: body.width * 0.7
                         height: body.height * 0.07
                     }

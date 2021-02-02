@@ -9,11 +9,11 @@ Item {
     property color btn_color: "#ffffff"
     property color btn_text_color: "#ffffff"
     property bool clicked: false
-//    property string name: ""
+    property real size: 22
     property bool external: false
 
     width: btn.width * 1.2
-    height: _height
+    height: 50
 
     Rectangle {
         anchors.fill: parent
@@ -27,8 +27,10 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
+
                 onEntered: {
-//                    canvas.requestPaint();
+
+//                    root.size = root.size + 3
                 }
                 onClicked: {
                         if(root.clicked == false){
@@ -38,7 +40,7 @@ Item {
 //                        canvas.requestPaint();
                 }
                 onExited: {
-//                    canvas.requestPaint();
+//                    root.size = root.size - 3
                 }
 
             }
@@ -70,7 +72,7 @@ Item {
         Text {
             id: btn
             text: root.btn_text
-            font { family: f; pointSize: 22}
+            font { family: f; pointSize: size}
             color: root.btn_text_color
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
