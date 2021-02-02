@@ -6,6 +6,9 @@ Item {
     id: erp
     anchors.fill: parent
     property string f: "Courier New"
+    property string ref: "P00025"
+    property variant win;
+
     Rectangle {
         anchors.fill: parent
         color: "#f4fcedda"
@@ -124,6 +127,7 @@ Item {
         height: erp.height - header.height
         visible: header.produit
 
+
         Rectangle {
             width: 40
             height: 40
@@ -143,6 +147,19 @@ Item {
                 x: parent.width * 1.5
                 font { family: f;}
                 color: "#ff4285f4"
+            }
+            MouseArea{
+                anchors.fill: parent
+                hoverEnabled: true
+                onClicked: {
+                    var component = Qt.createComponent("product/New.qml");
+                    win = component.createObject(erp);
+                    win.ref = erp.ref;
+//                    if(component.status == Component.Error){
+//                        print("Error loading component : ", component.errorString())
+//                    }
+                    win.show()
+                }
             }
         }
         Text {

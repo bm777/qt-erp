@@ -26,7 +26,7 @@ Window {
 
     property string f: "Courier New"
     property color color_rect : "white"
-    property string ref: "P00001"
+    property string ref: "P00025"
     property string desc: "Notion de base en ENR"
     property real price: 150000
     property real tva: 19.25
@@ -42,7 +42,7 @@ Window {
             anchors.fill: parent
             color: "#ffd9d9d9"
             Text {
-                text: "Modification du produit " + root.ref
+                text: "Enregistrement d'un produit"
                 color: "#999999"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -71,7 +71,6 @@ Window {
         FieldInput {
             id: input_desc
             label: "Description"
-            value: root.desc
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
@@ -80,7 +79,6 @@ Window {
         FieldInput {
             id: input_price
             label: "Prix de vente"
-            value: root.price
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
@@ -98,7 +96,6 @@ Window {
         FieldInput {
             id: input_rmq
             label: "Remarques"
-            value: root.rmq
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05

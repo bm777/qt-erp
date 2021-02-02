@@ -104,6 +104,10 @@ Rectangle {
             var component = Qt.createComponent("ChildPdt.qml");
             win = component.createObject(root);
             win.ref = root.ref;
+            win.desc = root.desc;
+            win.price = root.price;
+            win.tva = root.tva;
+            win.rmq = root.rmq;
             win.show();
 
         }
