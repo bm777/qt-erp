@@ -2,8 +2,8 @@ import QtQuick 2.0
 
 Item {
     id: root
-//    property real _width: 200
-//    property real _height: 100
+    property real _width: parent.width
+    property real _height: parent.height
     property string f: "Courier New"
     property string btn_text: "Test"
     property color btn_color: "#ffffff"
@@ -12,6 +12,9 @@ Item {
     property real size: 22
     property bool external: false
 
+
+//    onHeightChanged: canvas.requestPaint()
+//    onWidthChanged: canvas.requestPaint()
     width: btn.width * 1.2
     height: 50
 
@@ -77,6 +80,7 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
             onColorChanged: canvas.requestPaint()
+
         }
     }
 }

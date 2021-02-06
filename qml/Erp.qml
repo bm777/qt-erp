@@ -64,6 +64,7 @@ Item {
             }return false
         }
 
+
         Rectangle{
             anchors.fill: parent
             color: "#ff4285f4"
@@ -94,7 +95,7 @@ Item {
             x: btn_client.x + btn_client.width + 20
             height: header.height
             property string name: "facture"
-            btn_text: "<b>F</b>actures/<b>P</b>roformas"
+            btn_text: "<b>F</b>actures"
             btn_color: clicked == false ? "#ff4285f4" : "#ffffff"
             btn_text_color: clicked == false ? "#ffffff" : "#ff4285f4"
         }
@@ -112,130 +113,27 @@ Item {
             x: btn_export.x + btn_export.width + 20
             height: header.height
             property string name: "service"
-            btn_text: "<b>N</b>os <b>S</b>ervices"
+            btn_text: "<b>S</b>ervices"
             btn_color: clicked == false ? "#ff4285f4" : "#ffffff"
             btn_text_color: clicked == false ? "#ffffff" : "#ff4285f4"
         }
-
     }
 
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    Item {
-        id: body
+    Produits {
+        id: produits
         y: header.height
+        visible: header.produit
         width: erp.width
         height: erp.height - header.height
-        visible: header.produit
-
-
-        Rectangle {
-            width: 40
-            height: 40
-            color: "#ff4285f4"
-            radius: height / 2
-            x: product.x
-            y: height / 2
-            Text {
-                text: "+"
-                anchors.centerIn: parent
-                font.pointSize: 20
-                color: "white"
-            }
-            Text {
-                text: "Enregistrer un nouveau produit"
-                anchors.verticalCenter: parent.verticalCenter
-                x: parent.width * 1.5
-                font { family: f;}
-                color: "#ff4285f4"
-            }
-            MouseArea{
-                anchors.fill: parent
-                hoverEnabled: true
-                onClicked: {
-                    var component = Qt.createComponent("product/New.qml");
-                    win = component.createObject(erp);
-                    win.ref = erp.ref;
-//                    if(component.status == Component.Error){
-//                        print("Error loading component : ", component.errorString())
-//                    }
-                    win.show()
-                }
-            }
-        }
-        Text {
-            text: "Recherche par"
-            y: search.y + search.height / 3
-            x: search.x - search.width * 2.4/4
-            color: "#80000000"
-            font { family: f}
-        }
-        TextField {
-            id: search
-            width: erp.width * 0.12
-            height: erp.height * 0.04
-            y: product.y - height * 1.5
-            x: erp.width * 0.73
-            placeholderText: "Réf. Ex: P00077"
-            color: "black"
-            horizontalAlignment: TextField.Center
-            font { family: f; pointSize: 10}
-            background: Rectangle {
-                anchors.fill: parent
-                color: "transparent"
-//                border.color: "lightgray"
-            }
-            Rectangle{
-                y: parent.height * 0.8
-                width: parent.width
-                height: 1; color: "lightgray"
-            }
-        }
-
-        Product {
-            id: product
-            anchors.horizontalCenter: body.horizontalCenter
-            y: 80
-            // +++++++++++++++++++++++++++++++++++++++++
-            color_rect: "lightgray"
-            // +++++++++++++++++++++++++++++++++++++++++
-        }
-        ScrollView {
-            y: product.y + product. height + 7
-            ScrollBar.vertical.policy: ScrollBar.AlwaysOn
-            anchors.horizontalCenter: parent.horizontalCenter
-            contentWidth: col.width
-            contentHeight: col.height
-            height: parent.height * 0.8
-            width: parent.width * 0.7
-            clip: true
-
-
-            Column {
-                id: col
-                spacing: 10
-
-                Repeater{
-                    model: 20
-
-                    Pdt {
-                        ref: "P0000"+index
-                        visible: {
-                            var str = search.text
-                            if(str === ""){
-                                return true
-                            } else if(ref.includes(str)){
-                                return true
-                         }else return false
-                        }
-
-                        width: body.width * 0.7
-                        height: body.height * 0.07
-                    }
-                }
-            }
-        }
-
-
     }
+    Clients {
+        id: clients
+        y: header.height
+        visible: header.client
+        width: erp.width
+        height: erp.height - header.height
+    }
+
 }
 

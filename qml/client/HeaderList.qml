@@ -1,20 +1,20 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.15
 
-Rectangle {
+/*
+  documentation
+  */
+
+Item {
     id: root
-    width: 100
-    height: 100
-    color: "transparent"
+    width: parent.width * 0.7
+    height: parent.height * 0.07
     property string f: "Courier New"
     property color color_rect : "white"
-    property string ref: "P00001"
-    property string desc: "Notion de base en ENR"
-    property real price: 150000
-    property real tva: 19.25
-    property string rmq: "Payement en liquide"
-
-    property variant win;
+    property string ref: "Référence"
+    property string desc: "Description"
+    property string price: "Prix de vente (HT)"
+    property string tva: "Taux TVA (%)"
+    property string rmq: "Remarques"
 
     Rectangle {
         anchors.fill: parent
@@ -30,8 +30,8 @@ Rectangle {
             id: id_ref
             anchors.verticalCenter: parent.verticalCenter
             text: root.ref
-            color: "black"
-            font { family: f; bold: true; pointSize: 15}
+            color: "#666666"
+            font { family: f; bold: true}
         }
     }
     Rectangle {
@@ -44,7 +44,7 @@ Rectangle {
             id: id_desc
             anchors.verticalCenter: parent.verticalCenter
             text: root.desc
-            color: "#ff4285f4"
+            color: "#666666"
             font { family: f; bold: true}
         }
     }
@@ -87,35 +87,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.rmq
             color: "#666666"
-            font { family: f; bold: false; italic: true}
+            font { family: f; bold: true}
         }
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        hoverEnabled: true
-        onEntered: {
-            change.color = "#40b6b6b6"
-        }
-        onExited: {
-            change.color = "transparent"
-        }
-        onClicked: {
-            var component = Qt.createComponent("Modification.qml");
-            win = component.createObject(root);
-            win.ref = root.ref;
-            win.desc = root.desc;
-            win.price = root.price;
-            win.tva = root.tva;
-            win.rmq = root.rmq;
-            win.show();
-
-        }
-    }
-    Rectangle {
-        id: change
-        anchors.fill: parent
-        color: "transparent"
     }
 }
-

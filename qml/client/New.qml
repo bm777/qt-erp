@@ -41,7 +41,7 @@ Window {
             anchors.fill: parent
             color: "#ffd9d9d9"
             Text {
-                text: "Enregistrement d'un produit"
+                text: "Enregistrement d'un client"
                 color: "#999999"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -105,14 +105,14 @@ Window {
             y: input_rmq.y + input_rmq.height + 20
             anchors.horizontalCenter: parent.horizontalCenter
 
-            BtnPdt {
+            BtnClt {
                 btn_text: "Annuler"
                 size: 15
                 btn_color: "lightgray"
                 btn_text_color: "#ff4285f4"
                 onClickedChanged: root.close()
             }
-            BtnPdt {
+            BtnClt {
                 btn_text: "Enregistrer"
                 size: 15
                 btn_color: "#ff4285f4"

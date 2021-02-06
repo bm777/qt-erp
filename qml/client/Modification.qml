@@ -26,7 +26,7 @@ Window {
 
     property string f: "Courier New"
     property color color_rect : "white"
-    property string ref: "P00001"
+    property string ref: "C00001"
     property string desc: "Notion de base en ENR"
     property real price: 150000
     property real tva: 19.25
@@ -42,7 +42,7 @@ Window {
             anchors.fill: parent
             color: "#ffd9d9d9"
             Text {
-                text: "Modification du produit " + root.ref
+                text: "Modification du client " + root.ref
                 color: "#999999"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -109,17 +109,19 @@ Window {
             y: input_rmq.y + input_rmq.height + 20
             anchors.horizontalCenter: parent.horizontalCenter
 
-            BtnPdt {
+            BtnClt {
                 btn_text: "Annuler"
                 size: 15
-                btn_color: "transparent"
+                btn_color: "lightgray"
                 btn_text_color: "#ff4285f4"
+                onClickedChanged: root.close()
             }
-            BtnPdt {
+            BtnClt {
                 btn_text: "Enregistrer"
                 size: 15
                 btn_color: "#ff4285f4"
                 btn_text_color: "#ffffff"
+                onClickedChanged: root.close()
             }
         }
     }

@@ -1,5 +1,9 @@
 import QtQuick 2.0
 
+/*
+  documentation
+  */
+
 Item {
     id: root
     width: parent.width * 0.7

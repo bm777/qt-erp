@@ -125,7 +125,7 @@ logiciel"
 
                         act = true
                         // ++++++++++++++
-                        if("nani" == _username.text && "plokplok" == _password.text) {
+                        if("nani" == _username.text && "plok" == _password.text) {
                             btn.text = "..."
                             username = _username.text
                             password = _password.text

@@ -6,7 +6,7 @@ Window {
     title: qsTr("ERP")
     width: 1600
     height: 840
-//    visibility: "FullScreen"
+    visibility: "FullScreen"
     visible: true
     // ++++++++++++++++++++++++++++++++++++++
 
@@ -23,12 +23,12 @@ Window {
         id: login
         x: 0
         visible: {
-            if (login.username == "nani" && login.password == "plokplok") {
+            if (login.username == "nani" && login.password == "plok") {
                 busy.visible = true
                 return  false
             }
             else{
-                return  false //true
+                return  true //true
             }
         }
 
@@ -36,11 +36,29 @@ Window {
 
     Erp {
         id: erp
-        visible: true
+        visible: false
     }
 
 
+    SequentialAnimation {
+        running: !login.visible
 
+        PropertyAnimation {
+            target: busy
+            property: "visible"
+            easing.type: Easing.InOutQuad
+            duration: 500 + Math.floor(Math.random() * 500)
+            to: "false"
+        }
+        PropertyAnimation {
+            target: erp
+            property: "visible"
+            to: "true"
+            duration: 5
+            easing.type: Easing.InOutQuad
+        }
+
+    }
 
 
 
