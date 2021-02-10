@@ -134,6 +134,12 @@ Item {
         width: erp.width
         height: erp.height - header.height
     }
+    Factures {
+        y: header.height
+        visible: header.facture
+        width: erp.width
+        height: erp.height - header.height
+    }
 
 }
 

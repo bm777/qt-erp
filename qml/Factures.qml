@@ -1,16 +1,17 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.15
-import "product"
+import "facture"
 
 Item {
     id: body
+//    property string code: "facture"
 
     Rectangle {
         width: 40
         height: 40
         color: "#ff4285f4"
         radius: height / 2
-        x: product.x
+        x: facture.x
         y: height / 2
         Text {
             text: "+"
@@ -19,7 +20,8 @@ Item {
             color: "white"
         }
         Text {
-            text: "Enregistrer un nouveau produit"
+            id: rect
+            text: " Facture"
             anchors.verticalCenter: parent.verticalCenter
             x: parent.width * 1.5
             font { family: f;}
@@ -29,9 +31,10 @@ Item {
             anchors.fill: parent
             hoverEnabled: true
             onClicked: {
-                var component = Qt.createComponent("product/New.qml");
+                var component = Qt.createComponent("facture/New.qml");
                 win = component.createObject(body);
-                win.ref = erp.ref;
+//                win.ref = erp.ref;
+                win.code = "facture";
 //                    if(component.status == Component.Error){
 //                        print("Error loading component : ", component.errorString())
 //                    }
@@ -39,6 +42,43 @@ Item {
             }
         }
     }
+    // +++++++++++++++++++++++++++++
+    Rectangle {
+        width: 40
+        height: 40
+        color: "#ff4285f4"
+        radius: height / 2
+        x: facture.x + rect.width * 3
+        y: height / 2
+        Text {
+            text: "+"
+            anchors.centerIn: parent
+            font.pointSize: 20
+            color: "white"
+        }
+        Text {
+            text: "Proforma"
+            anchors.verticalCenter: parent.verticalCenter
+            x: parent.width * 1.5
+            font { family: f;}
+            color: "#ff4285f4"
+        }
+        MouseArea{
+            anchors.fill: parent
+            hoverEnabled: true
+            onClicked: {
+                var component = Qt.createComponent("facture/New.qml");
+                win = component.createObject(body);
+                win.code = "proforma"
+//                win.ref = erp.ref;
+//                    if(component.status == Component.Error){
+//                        print("Error loading component : ", component.errorString())
+//                    }
+                win.show()
+            }
+        }
+    }
+
     Text {
         text: "Recherche par"
         y: search.y + search.height / 3
@@ -50,9 +90,9 @@ Item {
         id: search
         width: erp.width * 0.12
         height: erp.height * 0.04
-        y: product.y - height * 1.5
+        y: facture.y - height * 1.5
         x: erp.width * 0.73
-        placeholderText: "Réf. Ex: P00077"
+        placeholderText: "Réf. Ex: F00077"
         color: "black"
         horizontalAlignment: TextField.Center
         font { family: f; pointSize: 10}
@@ -67,17 +107,18 @@ Item {
             height: 1; color: "lightgray"
         }
     }
-
     HeaderList {
-        id: product
+        id: facture
         anchors.horizontalCenter: body.horizontalCenter
         y: 80
         // +++++++++++++++++++++++++++++++++++++++++
         color_rect: "lightgray"
         // +++++++++++++++++++++++++++++++++++++++++
     }
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ScrollView {
-        y: product.y + product.height + 7
+        y: facture.y + facture.height + 7
         ScrollBar.vertical.policy: ScrollBar.AlwaysOn
         anchors.horizontalCenter: parent.horizontalCenter
         contentWidth: col.width
@@ -93,9 +134,8 @@ Item {
 
             Repeater{
                 model: 20
-
-                Pdt {
-                    ref: "P0000"+index
+                Fct {
+                    ref: "F0000"+index
                     visible: {
                         var str = search.text.toUpperCase()
                         if(str === ""){
@@ -104,11 +144,11 @@ Item {
                             return true
                      }else return false
                     }
-
                     width: body.width * 0.7
                     height: body.height * 0.07
                 }
             }
         }
     }
+
 }

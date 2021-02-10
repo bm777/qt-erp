@@ -40,6 +40,8 @@ Window {
     }
 
 
+
+
     SequentialAnimation {
         running: !login.visible
 

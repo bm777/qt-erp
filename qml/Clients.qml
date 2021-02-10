@@ -4,6 +4,7 @@ import "client"
 
 Item {
     id: body
+    property string last_ref: "C000023"
 
     Rectangle {
         width: 40
@@ -30,8 +31,8 @@ Item {
             hoverEnabled: true
             onClicked: {
                 var component = Qt.createComponent("client/New.qml");
-                win = component.createObject(erp);
-                win.ref = erp.ref;
+                win = component.createObject(body);
+//                win.ref = body.last_ref;
 //                    if(component.status == Component.Error){
 //                        print("Error loading component : ", component.errorString())
 //                    }
@@ -77,13 +78,13 @@ Item {
         // +++++++++++++++++++++++++++++++++++++++++
     }
     ScrollView {
-        y: client.y + client. height + 7
+        y: client.y + client.height + 7
         ScrollBar.vertical.policy: ScrollBar.AlwaysOn
         anchors.horizontalCenter: parent.horizontalCenter
         contentWidth: col.width
         contentHeight: col.height
         height: parent.height * 0.8
-        width: parent.width * 0.7
+        width: parent.width * 0.9
         clip: true
 
 
@@ -105,7 +106,7 @@ Item {
                      }else return false
                     }
 
-                    width: body.width * 0.7
+                    width: body.width * 0.9
                     height: body.height * 0.07
                 }
             }

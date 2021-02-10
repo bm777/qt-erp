@@ -26,15 +26,12 @@ Window {
 
     property string f: "Courier New"
     property color color_rect : "white"
-    property string ref: "C00001"
-    property string name: "Abomo"
-    property string type: "Standard Customer"
-    property string box: "8950"
-    property string town: "Yaounde"
-    property real tel: 6555555555
-    property string mail: "mail@gmail.com"
-    property string site: "site.cm"
-    property string rmq: ""
+    property string ref: "P00001"
+    property string client: "C00001"
+    property string emission: "08/02/2021"
+    property string delay: "08/02/2021"
+    property string paiment: "Cash"
+    property real discount: 5
 
 
     Item {
@@ -46,7 +43,7 @@ Window {
             anchors.fill: parent
             color: "#ffd9d9d9"
             Text {
-                text: "Modification du client " + root.ref
+                text: "Modification de " + root.ref
                 color: "#999999"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -73,90 +70,63 @@ Window {
             y: parent.height * 0.08
         }
         FieldInput {
-            id: input_name
-            label: "Nom ou Raison S."
-            value: root.name
+            id: input_client
+            label: "Client"
+            value: root.client
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
             y: input_ref.y + input_ref.height + 5
         }
         FieldInput {
-            id: input_type
-            label: "Type"
-            value: root.type
+            id: input_emission
+            label: "Date d'émission"
+            value: root.emission
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
-            y: input_name.y + input_name.height + 5
+            y: input_client.y + input_client.height + 5
         }
         FieldInput {
-            id: input_box
-            label: "PO BOX"
-            value: root.box
+            id: input_delay
+            label: "Délai"
+            value: root.delay
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
-            y: input_type.y + input_type.height + 5
+            y: input_emission.y + input_emission.height + 5
         }
         FieldInput {
-            id: input_town
-            label: "Ville"
-            value: root.town
+            id: input_paiment
+            label: "Moyen de paie"
+            value: root.paiment
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
-            y: input_box.y + input_box.height + 5
+            y: input_delay.y + input_delay.height + 5
         }
         FieldInput {
-            id: input_tel
-            label: "Téléphone"
-            value: root.tel
+            id: input_discount
+            label: "Remise G."
+            value: root.discount
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
-            y: input_town.y + input_town.height + 5
-        }
-        FieldInput {
-            id: input_mail
-            label: "eMail"
-            value: root.mail
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width * 0.5
-            height: parent.height * 0.05
-            y: input_tel.y + input_tel.height + 5
-        }
-        FieldInput {
-            id: input_site
-            label: "Site internet"
-            value: root.site
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width * 0.5
-            height: parent.height * 0.05
-            y: input_mail.y + input_mail.height + 5
-        }
-        FieldInput {
-            id: input_rmq
-            label: "Remarque"
-            value: root.rmq
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width * 0.5
-            height: parent.height * 0.05
-            y: input_site.y + input_site.height + 5
+            y: input_paiment.y + input_paiment.height + 5
         }
         Row {
             spacing: 100
-            y: input_rmq.y + input_rmq.height + 20
+            y: input_discount.y + input_discount.height + 20
             anchors.horizontalCenter: parent.horizontalCenter
 
-            BtnClt {
+            BtnF {
                 btn_text: "Annuler"
                 size: 15
                 btn_color: "lightgray"
                 btn_text_color: "#ff4285f4"
                 onClickedChanged: root.close()
             }
-            BtnClt {
+            BtnF {
                 btn_text: "Enregistrer"
                 size: 15
                 btn_color: "#ff4285f4"

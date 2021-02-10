@@ -3,20 +3,17 @@ import QtQuick.Controls 2.15
 
 Rectangle {
     id: root
-    width: parent.width * 0.9
+    width: 100
     height: 100
     color: "transparent"
     property string f: "Courier New"
     property color color_rect : "white"
-    property string ref: "C00001"
-    property string name: "Abomo"
-    property string type: "Standard Customer"
-    property string box: "8950"
-    property string town: "Yaounde"
-    property real tel: 65555555
-    property string mail: "mail@gmail.com"
-    property string site: "site.cm"
-    property string rmq: ""
+    property string ref: "F00001"
+    property string client: "C00001"
+    property string emission: "08/02/2021"
+    property string delay: "08/02/2021"
+    property string paiment: "Cash"
+    property real discount: 8
 
     property variant win;
 
@@ -41,13 +38,13 @@ Rectangle {
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
-        width: id_name.width
+        width: id_client.width
         height: parent.height
-        x: parent.width * 0.1
+        x: parent.width * 0.18
         Text {
-            id: id_name
+            id: id_client
             anchors.verticalCenter: parent.verticalCenter
-            text: root.name
+            text: root.client
             color: "#ff4285f4"
             font { family: f; bold: true}
         }
@@ -55,13 +52,13 @@ Rectangle {
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
-        width: id_type.width
+        width: id_emission.width
         height: parent.height
-        x: parent.width * 0.29
+        x: parent.width * 0.34
         Text {
-            id: id_type
+            id: id_emission
             anchors.verticalCenter: parent.verticalCenter
-            text: root.type
+            text: root.emission
             color: "#666666"
             font { family: f; bold: true}
         }
@@ -69,13 +66,13 @@ Rectangle {
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
-        width: id_box.width
+        width: id_delay.width
         height: parent.height
-        x: parent.width * 0.39
+        x: parent.width * 0.50
         Text {
-            id: id_box
+            id: id_delay
             anchors.verticalCenter: parent.verticalCenter
-            text: root.box
+            text: root.delay
             color: "#666666"
             font { family: f; bold: true}
         }
@@ -83,13 +80,13 @@ Rectangle {
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
-        width: id_town.width
+        width: id_paiment.width
         height: parent.height
-        x: parent.width * 0.49
+        x: parent.width * 0.66
         Text {
-            id: id_town
+            id: id_paiment
             anchors.verticalCenter: parent.verticalCenter
-            text: root.town
+            text: root.paiment
             color: "#666666"
             font { family: f; bold: false; italic: true}
         }
@@ -97,55 +94,13 @@ Rectangle {
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
-        width: id_tel.width
+        width: id_discount.width
         height: parent.height
-        x: parent.width * 0.59
+        x: parent.width * 0.82
         Text {
-            id: id_tel
+            id: id_discount
             anchors.verticalCenter: parent.verticalCenter
-            text: root.tel
-            color: "#666666"
-            font { family: f; bold: false; italic: true}
-        }
-    }
-    Rectangle {
-        anchors.verticalCenter: parent.verticalCenter
-        color: "transparent"
-        width: id_mail.width
-        height: parent.height
-        x: parent.width * 0.69
-        Text {
-            id: id_mail
-            anchors.verticalCenter: parent.verticalCenter
-            text: root.mail
-            color: "#666666"
-            font { family: f; bold: false; italic: true}
-        }
-    }
-    Rectangle {
-        anchors.verticalCenter: parent.verticalCenter
-        color: "transparent"
-        width: id_site.width
-        height: parent.height
-        x: parent.width * 0.79
-        Text {
-            id: id_site
-            anchors.verticalCenter: parent.verticalCenter
-            text: root.site
-            color: "#666666"
-            font { family: f; bold: false; italic: true}
-        }
-    }
-    Rectangle {
-        anchors.verticalCenter: parent.verticalCenter
-        color: "transparent"
-        width: id_rmq.width
-        height: parent.height
-        x: parent.width * 0.89
-        Text {
-            id: id_rmq
-            anchors.verticalCenter: parent.verticalCenter
-            text: root.rmq
+            text: root.discount
             color: "#666666"
             font { family: f; bold: false; italic: true}
         }
@@ -164,14 +119,11 @@ Rectangle {
             var component = Qt.createComponent("Modification.qml");
             win = component.createObject(root);
             win.ref = root.ref;
-            win.name = root.name;
-            win.type = root.type
-            win.box = root.box
-            win.town = root.town
-            win.tel = root.tel
-            win.mail = root.mail
-            win.site = root.site;
-            win.rmq = root.rmq;
+            win.client = root.client;
+            win.emission = root.emission;
+            win.delay = root.delay;
+            win.paiment = root.paiment;
+            win.discount = root.discount;
             win.show();
 
         }

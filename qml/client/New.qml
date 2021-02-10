@@ -25,11 +25,8 @@ Window {
 
     property string f: "Courier New"
     property color color_rect : "white"
-    property string ref: "P00025"
-    property string desc: "Notion de base en ENR"
-    property real price: 150000
-    property real tva: 19.25
-    property string rmq: "Payement en liquide"
+    property string ref: "C00024"
+
 
 
     Item {
@@ -68,37 +65,68 @@ Window {
             y: parent.height * 0.08
         }
         FieldInput {
-            id: input_desc
-            label: "Description"
+            id: input_name
+            label: "Nom ou Raison S."
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
             y: input_ref.y + input_ref.height + 5
         }
         FieldInput {
-            id: input_price
-            label: "Prix de vente"
+            id: input_type
+            label: "Type"
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
-            y: input_desc.y + input_desc.height + 5
+            y: input_name.y + input_name.height + 5
         }
         FieldInput {
-            id: input_tva
-            label: "Taux TVA (%)"
-            value: root.tva
+            id: input_box
+            label: "PO BOX"
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
-            y: input_price.y + input_price.height + 5
+            y: input_type.y + input_type.height + 5
+        }
+        FieldInput {
+            id: input_town
+            label: "Ville"
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width * 0.5
+            height: parent.height * 0.05
+            y: input_box.y + input_box.height + 5
+        }
+        FieldInput {
+            id: input_tel
+            label: "Téléphone"
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width * 0.5
+            height: parent.height * 0.05
+            y: input_town.y + input_town.height + 5
+        }
+        FieldInput {
+            id: input_mail
+            label: "eMail"
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width * 0.5
+            height: parent.height * 0.05
+            y: input_tel.y + input_tel.height + 5
+        }
+        FieldInput {
+            id: input_site
+            label: "Site internet"
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width * 0.5
+            height: parent.height * 0.05
+            y: input_mail.y + input_mail.height + 5
         }
         FieldInput {
             id: input_rmq
-            label: "Remarques"
+            label: "Remarque"
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width * 0.5
             height: parent.height * 0.05
-            y: input_tva.y + input_tva.height + 5
+            y: input_site.y + input_site.height + 5
         }
         Row {
             spacing: 100

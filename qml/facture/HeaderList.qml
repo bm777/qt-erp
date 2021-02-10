@@ -6,20 +6,17 @@ import QtQuick 2.0
 
 Item {
     id: root
-    width: parent.width * 0.9
+    width: parent.width * 0.7
     height: parent.height * 0.07
     property string f: "Courier New"
     property color color_rect : "white"
     property string ref: "Référence"
-    property string name: "Nom ou Raison S."
-    property string type: "Type"
-    property string box: "PO BOX"
-    property string town: "Ville"
-    property string tel: "Téléphone"
-    property string mail: "eMail"
-    property string site: "Site internet"
-    property string rmq: "Remarques"
-
+    property string client: "Client"
+    property string emission: "Date d'émission"
+    property string delay: "Délai"
+    property string paiment: "Moyen de paiment"
+    property string discount: "Remise (%)"
+//    property string exp: "Export"
 
     Rectangle {
         anchors.fill: parent
@@ -42,13 +39,13 @@ Item {
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
-        width: id_name.width
+        width: id_client.width
         height: parent.height
-        x: parent.width * 0.1
+        x: parent.width * 0.18
         Text {
-            id: id_name
+            id: id_client
             anchors.verticalCenter: parent.verticalCenter
-            text: root.name
+            text: root.client
             color: "#666666"
             font { family: f; bold: true}
         }
@@ -56,13 +53,13 @@ Item {
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
-        width: id_type.width
+        width: id_emission.width
         height: parent.height
-        x: parent.width * 0.29
+        x: parent.width * 0.34
         Text {
-            id: id_type
+            id: id_emission
             anchors.verticalCenter: parent.verticalCenter
-            text: root.type
+            text: root.emission
             color: "#666666"
             font { family: f; bold: true}
         }
@@ -70,13 +67,13 @@ Item {
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
-        width: id_box.width
+        width: id_delay.width
         height: parent.height
-        x: parent.width * 0.39
+        x: parent.width * 0.50
         Text {
-            id: id_box
+            id: id_delay
             anchors.verticalCenter: parent.verticalCenter
-            text: root.box
+            text: root.delay
             color: "#666666"
             font { family: f; bold: true}
         }
@@ -84,13 +81,13 @@ Item {
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
-        width: id_town.width
+        width: id_paiment.width
         height: parent.height
-        x: parent.width * 0.49
+        x: parent.width * 0.66
         Text {
-            id: id_town
+            id: id_paiment
             anchors.verticalCenter: parent.verticalCenter
-            text: root.town
+            text: root.paiment
             color: "#666666"
             font { family: f; bold: true}
         }
@@ -98,57 +95,17 @@ Item {
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
-        width: id_tel.width
+        width: id_discount.width
         height: parent.height
-        x: parent.width * 0.59
+        x: parent.width * 0.82
         Text {
-            id: id_tel
+            id: id_discount
             anchors.verticalCenter: parent.verticalCenter
-            text: root.tel
+            text: root.discount
             color: "#666666"
             font { family: f; bold: true}
         }
     }
-    Rectangle {
-        anchors.verticalCenter: parent.verticalCenter
-        color: "transparent"
-        width: id_mail.width
-        height: parent.height
-        x: parent.width * 0.69
-        Text {
-            id: id_mail
-            anchors.verticalCenter: parent.verticalCenter
-            text: root.mail
-            color: "#666666"
-            font { family: f; bold: true}
-        }
-    }
-    Rectangle {
-        anchors.verticalCenter: parent.verticalCenter
-        color: "transparent"
-        width: id_site.width
-        height: parent.height
-        x: parent.width * 0.79
-        Text {
-            id: id_site
-            anchors.verticalCenter: parent.verticalCenter
-            text: root.site
-            color: "#666666"
-            font { family: f; bold: true}
-        }
-    }
-    Rectangle {
-        anchors.verticalCenter: parent.verticalCenter
-        color: "transparent"
-        width: id_rmq.width
-        height: parent.height
-        x: parent.width * 0.89
-        Text {
-            id: id_rmq
-            anchors.verticalCenter: parent.verticalCenter
-            text: root.rmq
-            color: "#666666"
-            font { family: f; bold: true}
-        }
-    }
+
 }
+
