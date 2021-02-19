@@ -8,6 +8,7 @@ Item {
     property string f: "Courier New"
     property string ref: "P00025"
     property variant win;
+//    property bool out: false
 
     Rectangle {
         anchors.fill: parent
@@ -68,6 +69,29 @@ Item {
         Rectangle{
             anchors.fill: parent
             color: "#ff4285f4"
+
+            Image {
+                anchors.verticalCenter: parent.verticalCenter
+                x: parent.width - width * 1.6
+                source: "../img/exit.png"
+
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onEntered: effect.visible = true
+                    onExited: effect.visible = false
+                    onClicked: {
+                        erp.visible = false
+                    }
+                }
+
+                Rectangle {
+                    id: effect
+                    anchors.fill: parent
+                    color: "#4000ff00"
+                    visible: false
+                }
+            }
         }
 
         Btn {
@@ -118,6 +142,8 @@ Item {
             btn_text_color: clicked == false ? "#ffffff" : "#ff4285f4"
         }
     }
+
+
 
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     Produits {
