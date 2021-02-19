@@ -2,6 +2,6 @@
 ## Tools used are: Python, QML, Javascript, Bash
 
 Part 1 : GS/F
-Part 1 : ERP/CRM
-Part 1 : DTI-GMAO
-Part 1 : DTI-MCar
+Part 2 : ERP/CRM
+Part 3 : DTI-GMAO
+Part 4 : DTI-MCar
