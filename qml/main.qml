@@ -20,7 +20,7 @@ Window {
 
         Behavior on visible {
 
-            NumberAnimation { duration:  500 + Math.floor(Math.random() * 500)}
+            PropertyAnimation { to: false; duration: 500}
         }
     }
 
@@ -58,7 +58,25 @@ Window {
 
 
 
+    SequentialAnimation {
+        running: !login.visible
 
+
+        PropertyAnimation {
+            target: busy
+            property: "visible"
+            to: true
+            duration: 2000
+            easing.type: Easing.InOutQuad
+        }
+        PropertyAnimation {
+            target: selector
+            property: "visible"
+            to: true
+            duration: 5
+            easing.type: Easing.InOutQuad
+        }
+    }
 
 
 
