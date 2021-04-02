@@ -1,31 +1,71 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
-import MySQLdb
+import sqlite3
+
+class Produit:
+    def __init__(self, db_name):
+        self.name = "Product class"
+        self.database_name = db_name
+        self.conn = None
+        self.create_table()
+
+    def connexion(self):
+        return  sqlite3.connect(self.database_name)
+
+    def create_table(self):
+        self.conn = self.connexion()
+        self.conn.execute('''CREATE TABLE IF NOT EXISTS Produit
+                                    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    ref CHAR(50) NOT NULL,
+                                    description TEXT,
+                                    prix INT,
+                                    taux REAL,
+                                    remarques TEXT);''')
+        self.conn.close()
 
 
-# Open database connection
-ip = "localhost"
-username = "root"
-password = "plok"
-db_name = "gsf_db"
-db = MySQLdb.connect(ip, username ,password, db_name )
 
-# prepare a cursor object using cursor() method
-cursor = db.cursor()
+    def insert(self, sql):
+        self.conn = self.connexion()
+        self.conn.execute(sql)
+        self.conn.commit()
+        self.conn.close()
 
-# Drop table if it already exist using execute() method.
-#cursor.execute("DROP TABLE IF EXISTS PRODUIT")
+    def select(self, sql):
+        data = []
+        self.conn = self.connexion()
+        cursor = self.conn.execute(sql)
+        tmp = [d for d in cursor]
+        for item in tmp:
+            data.append([i for i in item])
+        self.conn.commit()
+        self.conn.close()
+        return data
 
-# Create table as per requirement
-sql = """CREATE TABLE PRODUIT (
-         REF  CHAR(20) NOT NULL,
-         DESCRIPTION  CHAR(20),
-         PRIX INT,  
-         TAUX FLOAT,
-         REMARQUE CHAR(20) )"""
+    def update(self, sql):
+        self.conn = self.connexion()
+        self.conn.execute(sql)
+        self.conn.commit()
+        self.conn.close()
+
+    def delete(self, sql):
+        self.conn = self.connexion()
+        self.conn.execute(sql)
+        self.conn.commit()
+        self.conn.close()
 
 
-cursor.execute(sql)
+if __name__ == "__main__":
+    pdt = Produit("../batabase.db")
+    sql_insert = "INSERT INTO Produit (ref, description, prix, taux, remarques) VALUES ('{}','{}',{},{},'{}')".format("pdt-12","desc",15000,19.25,"quite")
+    #pdt.insert(sql_insert)
 
-# disconnect from server
-db.close()
+    update = "UPDATE Produit set description='{}',prix={},taux={},remarques='{}' WHERE ref='{}'".format("desciption",12000,19.26,"rmqs","pdt-12")
+    pdt.update(update)
+
+    delete = "DELETE FROM Produit WHERE id={}".format(1)
+    pdt.delete(delete)
+
+    sql_select = "SELECT * FROM Produit"
+    select = pdt.select(sql_select)
+    print(select)
