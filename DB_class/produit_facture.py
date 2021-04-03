@@ -9,6 +9,7 @@ class PF:
         self.name = "PF class: produit facture linked"
         self.database_name = db_name
         self.conn = None
+
         self.create_table()
 
     def connexion(self):
@@ -27,6 +28,7 @@ class PF:
 
     def insert(self, sql):
         self.conn = self.connexion()
+        self.conn.execute(self.PRAGMA)
         self.conn.execute(sql)
         self.conn.commit()
         self.conn.close()
@@ -44,12 +46,14 @@ class PF:
 
     def update(self, sql):
         self.conn = self.connexion()
+        self.conn.execute(self.PRAGMA)
         self.conn.execute(sql)
         self.conn.commit()
         self.conn.close()
 
     def delete(self, sql):
         self.conn = self.connexion()
+        self.conn.execute(self.PRAGMA)
         self.conn.execute(sql)
         self.conn.commit()
         self.conn.close()
@@ -57,7 +61,7 @@ class PF:
 
 if __name__ == "__main__":
     pf = PF("../batabase.db")
-    t = 6,10
+    t = 2,2
 
     sql_insert = f"INSERT INTO produit_facture (produit_id,facture_id) VALUES ('{t[0]}','{t[1]}')"
     pf.insert(sql_insert)

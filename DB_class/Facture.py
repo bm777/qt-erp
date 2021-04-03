@@ -9,6 +9,7 @@ class Facture:
         self.name = "Facture class"
         self.database_name = db_name
         self.conn = None
+        self.PRAGMA = "PRAGMA foreign_keys = ON;"
         self.create_table()
 
     def connexion(self):
@@ -30,6 +31,7 @@ class Facture:
 
     def insert(self, sql):
         self.conn = self.connexion()
+        self.conn.execute(self.PRAGMA)
         self.conn.execute(sql)
         self.conn.commit()
         self.conn.close()
@@ -47,12 +49,14 @@ class Facture:
 
     def update(self, sql):
         self.conn = self.connexion()
+        self.conn.execute(self.PRAGMA)
         self.conn.execute(sql)
         self.conn.commit()
         self.conn.close()
 
     def delete(self, sql):
         self.conn = self.connexion()
+        self.conn.execute(self.PRAGMA)
         self.conn.execute(sql)
         self.conn.commit()
         self.conn.close()
