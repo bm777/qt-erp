@@ -25,9 +25,9 @@ Window {
 
     property string f: "Courier New"
     property color color_rect : "white"
-    property string ref: "P00025"
+    property string ref: "ref"
     property string desc: "Notion de base en ENR"
-    property real price: 150000
+    property real price: 0
     property real tva: 19.25
     property string rmq: "Payement en liquide"
 
@@ -59,7 +59,7 @@ Window {
         FieldInput {
             id: input_ref
             label: "Référence"
-//            placeholder: "P00077"
+//            placeholder: "ref"
             lock: true
             value: root.ref
             anchors.horizontalCenter: parent.horizontalCenter
@@ -117,7 +117,13 @@ Window {
                 size: 15
                 btn_color: "#ff4285f4"
                 btn_text_color: "#ffffff"
-                onClickedChanged: root.close()
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        bridge.insert_produit(input_ref.gettext, input_desc.gettext, input_price.gettext, input_tva.gettext, input_rmq.gettext)
+                        root.close()
+                    }
+                }
             }
         }
     }

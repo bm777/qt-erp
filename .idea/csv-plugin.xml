@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/DB_class/Login.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/DB_class/Produit.py">
           <value>
             <Attribute>
@@ -32,6 +39,13 @@
           </value>
         </entry>
         <entry key="/DB_class/produit_facture.py">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/Worker.py">
           <value>
             <Attribute>
               <option name="separator" value="," />

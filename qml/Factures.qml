@@ -38,6 +38,7 @@ Item {
 //                    if(component.status == Component.Error){
 //                        print("Error loading component : ", component.errorString())
 //                    }
+                win.ref = "F000" + bridge.produit_last_id("SELECT id FROM Facture")
                 win.show()
             }
         }
@@ -74,6 +75,7 @@ Item {
 //                    if(component.status == Component.Error){
 //                        print("Error loading component : ", component.errorString())
 //                    }
+                win.ref = "PF000" + bridge.produit_last_id("SELECT id FROM Facture")
                 win.show()
             }
         }
@@ -133,9 +135,16 @@ Item {
             spacing: 10
 
             Repeater{
-                model: 20
+                id: model_f
+                model: bridge.select_facture()
                 Fct {
-                    ref: "F0000"+index
+                    ref: modelData[1]
+                    client: modelData[2]
+                    emission: modelData[4]
+                    delay: modelData[5]
+                    paiment: modelData[6]
+                    type: modelData[3]
+                    discount: parseFloat(modelData[7])
                     visible: {
                         var str = search.text.toUpperCase()
                         if(str === ""){
@@ -148,6 +157,17 @@ Item {
                     height: body.height * 0.07
                 }
             }
+        }
+        Timer {
+            id: timer_f
+            running: body.visible
+
+            repeat: true
+            interval: 1000
+            onTriggered: {
+                model_f.model = bridge.select_facture()
+            }
+
         }
     }
 

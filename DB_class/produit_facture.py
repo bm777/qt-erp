@@ -9,7 +9,7 @@ class PF:
         self.name = "PF class: produit facture linked"
         self.database_name = db_name
         self.conn = None
-
+        self.PRAGMA = "PRAGMA foreign_keys = ON;"
         self.create_table()
 
     def connexion(self):

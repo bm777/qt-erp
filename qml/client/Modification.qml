@@ -161,7 +161,13 @@ Window {
                 size: 15
                 btn_color: "#ff4285f4"
                 btn_text_color: "#ffffff"
-                onClickedChanged: root.close()
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        bridge.update_client(input_ref.gettext, input_name.gettext, input_type.gettext, input_box.gettext, input_town.gettext, input_tel.gettext, input_mail.gettext, input_site.gettext, input_rmq.gettext)
+                        root.close()
+                    }
+                }
             }
         }
     }

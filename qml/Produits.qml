@@ -31,10 +31,9 @@ Item {
             onClicked: {
                 var component = Qt.createComponent("product/New.qml");
                 win = component.createObject(body);
-                win.ref = erp.ref;
-//                    if(component.status == Component.Error){
-//                        print("Error loading component : ", component.errorString())
-//                    }
+                print(bridge.produit_last_id("SELECT id FROM Produit"))
+                win.ref = "P000" + bridge.produit_last_id("SELECT id FROM Produit")
+
                 win.show()
             }
         }
@@ -92,23 +91,39 @@ Item {
             spacing: 10
 
             Repeater{
-                model: 20
+                id: model_p
+                model: bridge.select_produit()
 
                 Pdt {
-                    ref: "P0000"+index
+                    ref: modelData[1]
+                    desc: modelData[2]
+                    price: modelData[3]
+                    tva: modelData[4]
+                    rmq: modelData[5]
                     visible: {
                         var str = search.text.toUpperCase()
-                        if(str === ""){
+                        if (str === ""){
                             return true
                         } else if(ref.includes(str)){
                             return true
-                     }else return false
+                     } else return false
                     }
 
                     width: body.width * 0.7
                     height: body.height * 0.07
                 }
             }
+        }
+        Timer {
+            id: timer_p
+            running: body.visible
+
+            repeat: true
+            interval: 1000
+            onTriggered: {
+                model_p.model = bridge.select_produit()
+            }
+
         }
     }
 }

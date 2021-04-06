@@ -19,5 +19,5 @@ if __name__ == "__main__":
     if not engine.rootObjects():
         sys.exit(-1)
 
-    worker.data.connect(worker.setData)
+    #worker.data.connect(worker.setData)
     sys.exit(app.exec_())

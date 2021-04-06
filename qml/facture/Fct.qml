@@ -10,9 +10,11 @@ Rectangle {
     property color color_rect : "white"
     property string ref: "F00001"
     property string client: "C00001"
+    property string type: "facture"
     property string emission: "08/02/2021"
     property string delay: "08/02/2021"
     property string paiment: "Cash"
+    property string code: "facture"
     property real discount: 8
 
     property variant win;
@@ -45,6 +47,19 @@ Rectangle {
             id: id_client
             anchors.verticalCenter: parent.verticalCenter
             text: root.client
+            color: "#ff4285f4"
+            font { family: f; bold: true}
+        }
+    }Rectangle {
+        anchors.verticalCenter: parent.verticalCenter
+        color: "transparent"
+        width: id_type.width
+        height: parent.height
+        x: parent.width * 0.26
+        Text {
+            id: id_type
+            anchors.verticalCenter: parent.verticalCenter
+            text: root.type
             color: "#ff4285f4"
             font { family: f; bold: true}
         }
@@ -119,6 +134,7 @@ Rectangle {
             var component = Qt.createComponent("Modification.qml");
             win = component.createObject(root);
             win.ref = root.ref;
+            win.code = root.code;
             win.client = root.client;
             win.emission = root.emission;
             win.delay = root.delay;

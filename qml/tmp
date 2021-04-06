@@ -1,0 +1,18 @@
+Repeater{
+    model: 20
+
+    Pdt {
+        ref: "P0000"+index
+        visible: {
+            var str = search.text.toUpperCase()
+            if(str === ""){
+                return true
+            } else if(ref.includes(str)){
+                return true
+         }else return false
+        }
+
+        width: body.width * 0.7
+        height: body.height * 0.07
+    }
+}

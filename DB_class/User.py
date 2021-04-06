@@ -16,7 +16,7 @@ class User:
         self.conn = self.connexion()
         self.conn.execute('''CREATE TABLE IF NOT EXISTS User
                                     (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                    username CHAR(50) NOT NULL,
+                                    username CHAR(50) NOT NULL,self.PRAGMA = "PRAGMA foreign_keys = ON;"
                                     password CHAR(50),
                                     email CHAR(50),
                                     name CHAR(50),

@@ -126,7 +126,13 @@ Window {
                 size: 15
                 btn_color: "#ff4285f4"
                 btn_text_color: "#ffffff"
-                onClickedChanged: root.close()
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        bridge.insert_facture(input_ref.gettext,input_client.gettext,root.code,input_emission.gettext,input_delay.gettext,input_paiment.gettext,input_discount.gettext)
+                        root.close()
+                    }
+                }
             }
         }
     }

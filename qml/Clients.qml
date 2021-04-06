@@ -36,6 +36,7 @@ Item {
 //                    if(component.status == Component.Error){
 //                        print("Error loading component : ", component.errorString())
 //                    }
+                win.ref = "C000" + bridge.produit_last_id("SELECT id FROM Client")
                 win.show()
             }
         }
@@ -93,10 +94,19 @@ Item {
             spacing: 10
 
             Repeater{
-                model: 20
+                id: model_c
+                model: bridge.select_client()
 
                 Clt {
-                    ref: "C0000"+index
+                    ref: modelData[1]
+                    name: modelData[2]
+                    type: modelData[3]
+                    box: modelData[4]
+                    town: modelData[5]
+                    tel: modelData[6]
+                    mail: modelData[7]
+                    site: modelData[8]
+                    rmq: modelData[9]
                     visible: {
                         var str = search.text.toUpperCase()
                         if(str === ""){
@@ -110,6 +120,17 @@ Item {
                     height: body.height * 0.07
                 }
             }
+        }
+        Timer {
+            id: timer_c
+            running: body.visible
+
+            repeat: true
+            interval: 1000
+            onTriggered: {
+                model_c.model = bridge.select_client()
+            }
+
         }
     }
 }

@@ -66,11 +66,11 @@ if __name__ == "__main__":
     fac = Facture("../batabase.db")
     t = "f0001", 2, "facture", "2020-04-04", "2020-04-11", "liquide", 0.02
 
-    sql_insert = f"INSERT INTO Facture (ref,client_id,type,date,delay,paiement,remise) VALUES ('{t[0]}','{t[1]}','{t[2]}','{t[3]}',{t[4]},'{t[5]}','{t[6]}')"
+    sql_insert = f"INSERT INTO Facture (ref,client_id,type,date,delay,paiement,remise) VALUES ('{t[0]}','{t[1]}','{t[2]}','{t[3]}',{t[4]},'{t[5]}',{t[6]})"
     fac.insert(sql_insert)
 
     t = "f0001", 3, "facture", "2020-04-04", "2020-04-11", "liquide", 0.02
-    update = f"UPDATE Facture set ref='{t[0]}',client_id='{t[1]}',type='{t[2]}',date='{t[3]}',delay='{t[4]}',paiement='{t[5]}',remise='{t[6]}' WHERE id='{2}'"
+    update = f"UPDATE Facture set ref='{t[0]}',client_id='{t[1]}',type='{t[2]}',date='{t[3]}',delay='{t[4]}',paiement='{t[5]}',remise={t[6]} WHERE id='{2}'"
     fac.update(update)
 
     delete = "DELETE FROM Facture WHERE id={}".format(1)

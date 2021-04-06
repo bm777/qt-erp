@@ -8,6 +8,7 @@ Window {
     height: 840
     visibility: "FullScreen"
     visible: true
+    property real t: 1000
     // ++++++++++++++++++++++++++++++++++++++
 
 
@@ -20,7 +21,7 @@ Window {
 
         Behavior on visible {
 
-            PropertyAnimation { to: false; duration: 500}
+            PropertyAnimation { to: false; duration: t}
         }
     }
 
@@ -32,8 +33,8 @@ Window {
                 busy.visible = true
                 return  false
             }
-            else{
-                return  true //true
+            else {
+                return true //true
             }
         }
     }
@@ -49,7 +50,7 @@ Window {
     Selector {
         id: selector
         visible: {
-            print(true)
+
             return true
         }
 
@@ -60,25 +61,21 @@ Window {
 
     SequentialAnimation {
         running: !login.visible
-
-
         PropertyAnimation {
             target: busy
             property: "visible"
             to: true
-            duration: 2000
+            duration: 5
             easing.type: Easing.InOutQuad
         }
         PropertyAnimation {
             target: selector
             property: "visible"
             to: true
-            duration: 5
+            duration: t
             easing.type: Easing.InOutQuad
         }
     }
-
-
 
 
 

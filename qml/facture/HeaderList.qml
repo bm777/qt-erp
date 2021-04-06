@@ -12,6 +12,7 @@ Item {
     property color color_rect : "white"
     property string ref: "Référence"
     property string client: "Client"
+    property string type: "Type"
     property string emission: "Date d'émission"
     property string delay: "Délai"
     property string paiment: "Moyen de paiment"
@@ -46,6 +47,19 @@ Item {
             id: id_client
             anchors.verticalCenter: parent.verticalCenter
             text: root.client
+            color: "#666666"
+            font { family: f; bold: true}
+        }
+    }Rectangle {
+        anchors.verticalCenter: parent.verticalCenter
+        color: "transparent"
+        width: id_type.width
+        height: parent.height
+        x: parent.width * 0.26
+        Text {
+            id: id_type
+            anchors.verticalCenter: parent.verticalCenter
+            text: root.type
             color: "#666666"
             font { family: f; bold: true}
         }

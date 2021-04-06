@@ -121,7 +121,15 @@ Window {
                 size: 15
                 btn_color: "#ff4285f4"
                 btn_text_color: "#ffffff"
-                onClickedChanged: root.close()
+                //
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+
+                        bridge.update_produit(input_ref.gettext, input_desc.gettext,input_price.gettext, input_tva.gettext, input_rmq.gettext )
+                        root.close()
+                    }
+                }
             }
         }
     }

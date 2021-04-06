@@ -1,36 +1,37 @@
 #!/usr/bin/python3
 
 import sqlite3
+import time
 
-import DB_class
-
-
-class Produit:
+class Login:
     def __init__(self, db_name):
-        self.name = "Product class"
+        self.name = "Login class"
         self.database_name = db_name
-        self.PRAGMA = "PRAGMA foreign_keys = ON;"
         self.conn = None
+        self.PRAGMA = "PRAGMA foreign_keys = ON;"
         self.create_table()
+
+    def time_now(self):
+        return f"{time.gmtime().tm_year}-{time.gmtime().tm_mon}-{time.gmtime().tm_mday} {time.gmtime().tm_hour}:{time.gmtime().tm_min}:{time.gmtime().tm_sec}"
 
     def connexion(self):
         return  sqlite3.connect(self.database_name)
 
     def create_table(self):
         self.conn = self.connexion()
-        self.conn.execute('''CREATE TABLE IF NOT EXISTS Produit
+        self.conn.execute(self.PRAGMA)
+        self.conn.execute('''CREATE TABLE IF NOT EXISTS Login
                                     (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                    ref CHAR(50) NOT NULL,
-                                    description TEXT,
-                                    prix INT,
-                                    taux REAL,
-                                    remarques TEXT);''')
+                                    user_id INTEGER,
+                                    date CHAR(50) NOT NULL,
+                                    FOREIGN KEY (user_id) REFERENCES User(id));''')
         self.conn.close()
 
 
 
     def insert(self, sql):
         self.conn = self.connexion()
+        self.conn.execute(self.PRAGMA)
         self.conn.execute(sql)
         self.conn.commit()
         self.conn.close()
@@ -55,23 +56,25 @@ class Produit:
 
     def delete(self, sql):
         self.conn = self.connexion()
+        self.conn.execute(self.PRAGMA)
         self.conn.execute(sql)
         self.conn.commit()
         self.conn.close()
 
 
 if __name__ == "__main__":
-    pdt = Produit("../batabase.db")
-    sql_insert = "INSERT INTO Produit (ref, description, prix, taux, remarques) VALUES ('{}','{}',{},{},'{}')".format("pdt-15","desc",15000,19.25,"quite")
-    pdt.insert(sql_insert)
+    log = Login("../batabase.db")
+    t = 2, log.time_now()
+    sql_insert = f"INSERT INTO Login (user_id, date) VALUES ('{t[0]}','{t[1]}')"
+    log.insert(sql_insert)
 
-    update = "UPDATE Produit set description='{}',prix={},taux={},remarques='{}' WHERE ref='{}'".format("desciption",1200,19.26,"rmq","pdt-15")
-    v = pdt.update(update)
-    print(v)
+    t = 4, log.time_now()
+    update = f"UPDATE Login set user_id='{t[0]}', date='{t[1]}' WHERE id={1}"
+    log.update(update)
 
-    delete = "DELETE FROM Produit WHERE id={}".format(1)
-    #pdt.delete(delete)
+    delete = "DELETE FROM Login WHERE id={}".format(6)
+    log.delete(delete)
 
-    sql_select = "SELECT * FROM Produit"
-    select = pdt.select(sql_select)
+    sql_select = "SELECT * FROM Login"
+    select = log.select(sql_select)
     print(select)
