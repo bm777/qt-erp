@@ -22,6 +22,7 @@ class PF:
                                     (id INTEGER PRIMARY KEY AUTOINCREMENT,
                                     produit_id INTEGER,
                                     facture_id INTEGER,
+                                    n INTEGER,
                                     FOREIGN KEY (produit_id) REFERENCES Produit(id),
                                     FOREIGN KEY (facture_id) REFERENCES Facture(id));''')
         self.conn.close()
@@ -61,17 +62,17 @@ class PF:
 
 if __name__ == "__main__":
     pf = PF("../batabase.db")
-    t = 2,2
+    t = 3,3,4
 
-    sql_insert = f"INSERT INTO produit_facture (produit_id,facture_id) VALUES ('{t[0]}','{t[1]}')"
+    sql_insert = f"INSERT INTO produit_facture (produit_id,facture_id, n) VALUES ({t[0]},{t[1]},{t[2]})"
     pf.insert(sql_insert)
 
-    t = "f0001", 3, "facture", "2020-04-04", "2020-04-11", "liquide", 0.02
-    update = f"UPDATE Facture set ref='{t[0]}',client_id='{t[1]}',type='{t[2]}',date='{t[3]}',delay='{t[4]}',paiement='{t[5]}',remise='{t[6]}' WHERE id='{2}'"
-    #ffac.update(update)
+    t = 3,2,7
+    update = f"UPDATE produit_facture set produit_id='{t[0]}',n={t[2]} WHERE facture_id='{2}'"
+    pf.update(update)
 
-    delete = "DELETE FROM produit_facture WHERE id={}".format(1)
-    #fac.delete(delete)
+    delete = "DELETE FROM produit_facture WHERE id={}".format(3)
+    #pf.delete(delete)
 
     sql_select = "SELECT * FROM produit_facture"
     select = pf.select(sql_select)
