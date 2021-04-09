@@ -134,7 +134,7 @@ Rectangle {
             var component = Qt.createComponent("Modification.qml");
             win = component.createObject(root);
             win.ref = root.ref;
-            win.code = root.code;
+            win.type = root.type;
             win.client = root.client;
             win.emission = root.emission;
             win.delay = root.delay;

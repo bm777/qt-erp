@@ -62,14 +62,14 @@ class PF:
 
 if __name__ == "__main__":
     pf = PF("../batabase.db")
-    t = 3,3,4
+    t = 2,2,2
 
     sql_insert = f"INSERT INTO produit_facture (produit_id,facture_id, n) VALUES ({t[0]},{t[1]},{t[2]})"
     pf.insert(sql_insert)
 
     t = 3,2,7
     update = f"UPDATE produit_facture set produit_id='{t[0]}',n={t[2]} WHERE facture_id='{2}'"
-    pf.update(update)
+    #pf.update(update)
 
     delete = "DELETE FROM produit_facture WHERE id={}".format(3)
     #pf.delete(delete)

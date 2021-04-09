@@ -57,6 +57,13 @@ class Worker(QObject):
             last_id = 0
         return last_id
 
+    @Slot(int, result=str)
+    def produit_name(self, id):
+        pdt = Produit(self.path)
+        sql = f"SELECT description FROM Produit WHERE id={id}"
+        result = pdt.select(sql)
+        return result
+
     @Slot(str, str, str, str, str, result=bool)
     def insert_produit(self, ref, desc, prix, tva, rmq):
         pdt = Produit(self.path)
@@ -81,24 +88,22 @@ class Worker(QObject):
 
     @Slot(str, str, str, str, str, str, str, str, str, result=bool)
     def insert_client(self, ref,nom,type,po,ville,tel,email,site,rmq):
-        pdt = Produit(self.path)
+        clt = Client(self.path)
         sql_insert = f"INSERT INTO Client (ref,nom,type,PO,ville,tel,email,site,remarques) VALUES ('{ref}','{nom}','{type}','{po}','{ville}','{tel}','{email}','{site}','{rmq}')"
-        pdt.insert(sql_insert)
+        clt.insert(sql_insert)
         return True
 
     # client functions
     @Slot(result="QVariantList")
     def select_facture(self):
-        fac = Client(self.path)
+        fac = Facture(self.path)
         sql_select = "SELECT * FROM Facture"
         select = fac.select(sql_select)
-        print(select)
         return select
 
     @Slot(str, str, str, str, str, str, str, result=bool)
     def update_facture(self, ref, client_id, type, date, delay, paiement, remise):
         fac = Facture(self.path)
-        print(remise)
         update = f"UPDATE Facture set client_id='{client_id}',type='{type}',date='{date}',delay='{delay}',paiement='{paiement}',remise={float(remise)} WHERE ref='{ref}'"
         fac.update(update)
         return True
@@ -108,4 +113,41 @@ class Worker(QObject):
         fact = Facture(self.path)
         sql_insert = f"INSERT INTO Facture (ref,client_id,type,date,delay,paiement,remise) VALUES ('{ref}','{client_id}','{type}','{date}',{delay},'{paiement}',{float(remise)})"
         fact.insert(sql_insert)
+        return True
+
+    @Slot(int, int, int, result=bool)
+    def update_pf(self, facture_id, produit_id, n):
+        pf = PF(self.path)
+        update = f"UPDATE produit_facture set produit_id={produit_id},n={n} WHERE facture_id={facture_id}"
+        pf.update(update)
+        return True
+
+    @Slot(int, int, int, result=bool)
+    def insert_pf(self, facture_id, produit_id, n):
+        pf = PF(self.path)
+        sql_insert = f"INSERT INTO produit_facture (produit_id,facture_id, n) VALUES ({facture_id},{produit_id},{n})"
+        pf.insert(sql_insert)
+        return True
+
+    @Slot(str, result=int)
+    def select_facture_id(self, ref):
+        pf = PF(self.path)
+        select = f"SELECT id FROM Facture WHERE ref='{ref}'"
+        result = pf.select(select)
+
+        return result
+
+    @Slot(int, result="QVariantList")
+    def select_pf(self, facture_id):
+        pf = PF(self.path)
+        select = f"SELECT * FROM produit_facture WHERE facture_id={facture_id}"
+        result = pf.select(select)
+        print(facture_id, result)
+        return result
+
+    @Slot(int, int, result=bool)
+    def delete_pf(self, facture_id, produit_id):
+        pf = PF(self.path)
+        select = f"DELETE FROM produit_facture WHERE facture_id={facture_id} AND produit_id={produit_id}"
+        pf.delete(select)
         return True

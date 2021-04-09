@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.15
 import QtQuick.Window 2.6
+import "../"
 
 
 Window {
@@ -31,7 +32,7 @@ Window {
     property string emission: "08/02/2021"
     property string delay: "08/02/2021"
     property string paiment: "Cash"
-    property string code: "facture"
+    property string type: "facture"
     property real discount: 5
 
 
@@ -115,9 +116,51 @@ Window {
             height: parent.height * 0.05
             y: input_paiment.y + input_paiment.height + 5
         }
+        BtnF {
+            x: container.x + container.width + 20
+            y: container.y
+            btn_text: "Produit (+)"
+            size: 15
+            btn_color: "#ff4285f4"
+            btn_text_color: "#ffffff"
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    print("clicked on BtnF")
+                }
+            }
+        }
+        Rectangle {
+            id: container
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width * 0.5
+            height: parent.height * 0.4
+//            color: "red"
+            y: input_discount.y + input_discount.height + 5
+            Column {
+                id: col
+                spacing: 10
+                Repeater {
+                    id: model_lot
+                    model: {
+                        return bridge.select_pf(bridge.select_facture_id(input_ref.gettext))
+                    }
+
+                    Lot {
+                        id_id: modelData[0]
+                        name: bridge.produit_name(modelData[2])
+                        qte: modelData[3]
+                        x: 10
+                    }
+                }
+
+            }
+        }
+
+
         Row {
             spacing: 100
-            y: input_discount.y + input_discount.height + 20
+            y: root.height - 50 * 3 // input_discount.y + input_discount.height + 20    /// 50 size of BtnF
             anchors.horizontalCenter: parent.horizontalCenter
 
             BtnF {
@@ -135,7 +178,7 @@ Window {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        bridge.update_facture(input_ref.gettext,input_client.gettext,root.code,input_emission.gettext,input_delay.gettext,input_paiment.gettext,input_discount.gettext)
+                        bridge.update_facture(input_ref.gettext,input_client.gettext,root.type,input_emission.gettext,input_delay.gettext,input_paiment.gettext,input_discount.gettext)
                         root.close()
                     }
                 }

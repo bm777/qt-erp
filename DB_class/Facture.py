@@ -26,6 +26,7 @@ class Facture:
                                     delay CHAR(50),
                                     paiement CHAR(50),
                                     remise REAL,
+                                    status CHAR(50),
                                     FOREIGN KEY (client_id) REFERENCES Client (id));''')
         self.conn.close()
 
