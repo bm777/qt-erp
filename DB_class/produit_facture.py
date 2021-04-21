@@ -62,7 +62,7 @@ class PF:
 
 if __name__ == "__main__":
     pf = PF("../batabase.db")
-    t = 2,2,2
+    t = 3,1,2
 
     sql_insert = f"INSERT INTO produit_facture (produit_id,facture_id, n) VALUES ({t[0]},{t[1]},{t[2]})"
     pf.insert(sql_insert)
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     update = f"UPDATE produit_facture set produit_id='{t[0]}',n={t[2]} WHERE facture_id='{2}'"
     #pf.update(update)
 
-    delete = "DELETE FROM produit_facture WHERE id={}".format(3)
+    delete = "DELETE FROM produit_facture WHERE id={}".format(4)
     #pf.delete(delete)
 
     sql_select = "SELECT * FROM produit_facture"

@@ -143,7 +143,9 @@ Window {
                 Repeater {
                     id: model_lot
                     model: {
-                        return bridge.select_pf(bridge.select_facture_id(input_ref.gettext))
+                        var facture_id =  bridge.select_facture_id(input_ref.gettext)
+
+                        return bridge.select_pf(facture_id)
                     }
 
                     Lot {

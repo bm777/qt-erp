@@ -31,7 +31,7 @@ Window {
         visible: {
             if (login.username == "nani" && login.password == "plok") {
                 busy.visible = true
-                return  false
+                return false
             }
             else {
                 return true //true

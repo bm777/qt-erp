@@ -131,10 +131,13 @@ class Worker(QObject):
 
     @Slot(str, result=int)
     def select_facture_id(self, ref):
-        pf = PF(self.path)
+        fac = Facture(self.path)
         select = f"SELECT id FROM Facture WHERE ref='{ref}'"
-        result = pf.select(select)
-
+        result = fac.select(select)
+        if(result == []):
+            result = 0
+        else:
+            result = result[0][0]
         return result
 
     @Slot(int, result="QVariantList")
@@ -142,7 +145,7 @@ class Worker(QObject):
         pf = PF(self.path)
         select = f"SELECT * FROM produit_facture WHERE facture_id={facture_id}"
         result = pf.select(select)
-        print(facture_id, result)
+        #print("--",facture_id, result)
         return result
 
     @Slot(int, int, result=bool)

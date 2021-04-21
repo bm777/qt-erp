@@ -11,6 +11,10 @@ class PDF:
     def __init__(self, template="../pdf/invoice.pdf", outfile="../pdf/result.pdf"):
         self.outfile = outfile
         self.infile = template
+        self.PRIX = 100000
+        self.rc = "RC/YAE/2019/B/2647"
+        self.bp = "BP 467"
+        self.tel = "242075453"
 
     def get(self, dest="../pdf/result.pdf", data=None):
         template = PdfReader(self.infile, decompress=False).pages[0]
