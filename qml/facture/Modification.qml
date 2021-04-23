@@ -264,7 +264,8 @@ Window {
                 rect.border.width = rect.border.width - 1
             }
             onClicked: {
-
+                var data = model_lot.model
+                bridge.export(input_client.gettext, input_ref.gettext, data)
             }
         }
     }

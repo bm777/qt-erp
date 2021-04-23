@@ -6,7 +6,8 @@ from DB_class import Produit
 from DB_class import Client
 from DB_class import Facture
 from DB_class import PF
-from DB_class import PDF
+from printer import PDF
+import os
 
 #from DB_class.Produit import Produit
 #from DB_class.Client import Client
@@ -174,7 +175,30 @@ class Worker(QObject):
         return True
 
 
-    @Slot(list, result=bool)
-    def export(self, l):
-        pdf = PDF()
+    @Slot(int, str, "QVariantList", result=bool)
+    def export(self, id, ref, data):
+
+        fac = Facture(self.path)
+        tmp = []
+        final = []
+        select = f"SELECT Client.nom, Client.type, Client.ville, Client.site, Client.po, Facture.ref, Facture.date, Facture.delay, Facture.paiement, Facture.remise FROM Client, Facture WHERE Client.id=Facture.client_id AND Facture.client_id={id} AND Facture.ref='{ref}'"
+        result = fac.select(select)
+        if(result==[]):
+            result = [0 for x in range(10)]
+        else:
+            result = result[0]
+        final.append(result)
+
+        for e in data:
+            sql = f"SELECT Produit.ref, Produit.description, produit_facture.n, Produit.prix, Produit.taux FROM Produit, Facture, produit_facture WHERE Produit.id=produit_facture.produit_id AND Facture.id=produit_facture.facture_id AND Produit.id={e[1]} AND Facture.id={e[2]}"
+            var = fac.select(sql)
+            if(var == []):
+                var = []
+            else:
+                var = var[0]
+            tmp.append(var)
+        final.append(tmp)
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        pdf = PDF(template=current_dir+"/pdf/invoice.pdf", outfile=current_dir+"/pdf/facture{}.pdf".format(result[5]))
+        pdf.get(data=final)
         return True
