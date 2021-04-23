@@ -6,6 +6,8 @@ from DB_class import Produit
 from DB_class import Client
 from DB_class import Facture
 from DB_class import PF
+from DB_class import PDF
+
 #from DB_class.Produit import Produit
 #from DB_class.Client import Client
 #from DB_class.User import User
@@ -62,6 +64,10 @@ class Worker(QObject):
         pdt = Produit(self.path)
         sql = f"SELECT description FROM Produit WHERE id={id}"
         result = pdt.select(sql)
+        if(result == []):
+            return ""
+        else:
+            result = result[0][0]
         return result
 
     @Slot(str, str, str, str, str, result=bool)
@@ -132,9 +138,20 @@ class Worker(QObject):
     @Slot(str, result=int)
     def select_facture_id(self, ref):
         fac = Facture(self.path)
-        select = f"SELECT id FROM Facture WHERE ref='{ref}'"
+        select = f"SELECT id FROM Facture WHERE ref='{(ref)}'"
         result = fac.select(select)
         if(result == []):
+            result = 0
+        else:
+            result = result[0][0]
+        return result
+
+    @Slot(str, result=int)
+    def select_produit_id(self, desc):
+        pdt = Produit(self.path)
+        select = f"SELECT id FROM Produit WHERE description='{(desc)}'"
+        result = pdt.select(select)
+        if (result == []):
             result = 0
         else:
             result = result[0][0]
@@ -148,9 +165,16 @@ class Worker(QObject):
         #print("--",facture_id, result)
         return result
 
-    @Slot(int, int, result=bool)
-    def delete_pf(self, facture_id, produit_id):
+    @Slot(int, result=bool)
+    def delete_pf(self, id):
         pf = PF(self.path)
-        select = f"DELETE FROM produit_facture WHERE facture_id={facture_id} AND produit_id={produit_id}"
+        select = f"DELETE FROM produit_facture WHERE id={id}"
         pf.delete(select)
+        print(id)
+        return True
+
+
+    @Slot(list, result=bool)
+    def export(self, l):
+        pdf = PDF()
         return True

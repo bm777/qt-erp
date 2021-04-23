@@ -7,6 +7,8 @@ Item {
     property string name: "pdt"
     property real qte: 0
     property string f: "Courier New"
+    property int produit_id: 0
+    property int facture_id: 0
     width: id_name.width * 1.2 + 70
     height: id_name.height * 1.2
 
@@ -29,8 +31,8 @@ Item {
         }
         Text {
             id: id_value
-            text: "{ "+ root.qte +" }"
-            font {family: f;}
+            text: "("+ root.qte +")"
+            font {family: f; pointSize: 15; bold: true}
             x: id_name.width + 20
         }
 
@@ -51,6 +53,8 @@ Item {
                     anchors.fill: parent
                     onClicked: {
                         print("closed "+ id_name.text)
+                        bridge.delete_pf(id_id)
+
                         root.visible = false
 
                     }

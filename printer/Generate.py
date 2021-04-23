@@ -58,7 +58,7 @@ class PDF:
         canvas.setFont("Helvetica-Bold", 10)
         canvas.drawString(100, 604, t["name"])
         canvas.setFont("Helvetica-Bold", 12)
-        canvas.drawString(23, 604-16, t["raison"])
+        canvas.drawString(100, 604-16, t["raison"])  # 23
 
         canvas.setFont("Helvetica", 10)
         canvas.drawString(100, 573, t["address"])           # 604 - 31

@@ -4,8 +4,8 @@ import QtQuick.Controls 2.15
 
 Window {
     title: qsTr("ERP")
-    width: 1600
-    height: 840
+    width: Screen.width         //1600
+    height: Screen.height       // 840
     visibility: "FullScreen"
     visible: true
     property real t: 1000

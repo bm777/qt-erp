@@ -151,7 +151,7 @@ Item {
                             return true
                         } else if(ref.includes(str)){
                             return true
-                     }else return false
+                     } else return false
                     }
                     width: body.width * 0.7
                     height: body.height * 0.07

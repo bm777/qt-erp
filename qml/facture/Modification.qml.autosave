@@ -264,7 +264,7 @@ Window {
                 rect.border.width = rect.border.width - 1
             }
             onClicked: {
-
+                bridge.
             }
         }
     }
