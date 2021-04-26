@@ -118,11 +118,11 @@ class PDF:
         canvas.drawString(595 - totalWidth - 40, 120, t["total"] + " F CFA")
         # Prepared by
 
-        print(f"gnome-open {dest}")
+        print(f"{dest}")
 
         canvas.save()
 
-        command = f"gnome-open {dest}"
+        command = f"{dest}"
         os.system(command)
 
 if __name__ == "__main__":

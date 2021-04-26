@@ -23,7 +23,7 @@ class Worker(QObject):
     def __init__(self):
         QObject.__init__(self)
         self._data = "data from worker"
-        self.path = "/home/bm7/qt/project/qt-erp/batabase.db"
+        self.path = "batabase.db"
 
     def setProduit(self, tmp):
         if (self._data != tmp):
@@ -42,6 +42,7 @@ class Worker(QObject):
         pdts = Produit(self.path)
         sql_select = "SELECT * FROM Produit"
         select = pdts.select(sql_select)
+        print(select)
         return select
 
     @Slot(str, str, str, str, str, result=bool)

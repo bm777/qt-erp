@@ -68,10 +68,10 @@ if __name__ == "__main__":
 
     t = "clt-1", "Ali", "personal", "PO:11", "Yaounde", "+237655586947", "mail@gmail.com", "itl.com", "quite"
     update = f"UPDATE Client set ref='{t[0]}',nom='{t[1]}',type='{t[2]}',PO='{t[3]}',ville='{t[4]}',tel='{t[5]}',email='{t[6]}',site='{t[7]}',remarques='{t[8]}' WHERE id='{2}'"
-    clt.update(update)
+    #clt.update(update)
 
     delete = "DELETE FROM Client WHERE id={}".format(1)
-    clt.delete(delete)
+    #clt.delete(delete)
 
     sql_select = "SELECT * FROM Client"
     select = clt.select(sql_select)
