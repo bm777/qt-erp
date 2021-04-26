@@ -42,7 +42,6 @@ class Worker(QObject):
         pdts = Produit(self.path)
         sql_select = "SELECT * FROM Produit"
         select = pdts.select(sql_select)
-        print(select)
         return select
 
     @Slot(str, str, str, str, str, result=bool)

@@ -71,7 +71,7 @@ logiciel"
             id: _username
             anchors.horizontalCenter: parent.horizontalCenter
             width: form.width * 0.6
-            height: form.height * 0.09
+            height: form.height * 0.06
             y: form.height * 0.35
             placeholderText: "username"
             color: "black"
@@ -82,8 +82,8 @@ logiciel"
             id: _password
             anchors.horizontalCenter: parent.horizontalCenter
             width: form.width * 0.6
-            height: form.height * 0.09
-            y: form.height * 0.5
+            height: form.height * 0.06
+            y: form.height * 0.46
             placeholderText: "password"
             color: "black"
             horizontalAlignment: TextField.Center
@@ -97,8 +97,8 @@ logiciel"
         Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
             width: 300
-            height: 100
-            y: parent.height * 0.7
+            height: 70
+            y: parent.height * 0.6
             color: "transparent"
 
 
