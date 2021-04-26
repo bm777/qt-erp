@@ -52,11 +52,11 @@ Item {
 
     ///////////////////////////////////////////
     Rectangle {
-        y: -parent.height * 0.8448
-        x: parent.height * 0.8448
-        width: parent.width * 0.05
+        y: -height * 0.475
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: 100//parent.height * 0.05
         height: parent.width
-        rotation: 270
+        rotation: 90 * 3 // 270
         gradient: Gradient {
             GradientStop { position: 0.0; color: "#3eadcf" }
             GradientStop { position: 1.0; color: "#abe9cd" }
