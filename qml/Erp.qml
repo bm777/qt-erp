@@ -75,7 +75,7 @@ Item {
                 x: parent.width - width * 1.6
                 source: "../img/exit.png"
 
-                MouseArea{
+                MouseArea {
                     anchors.fill: parent
                     hoverEnabled: true
                     onEntered: effect.visible = true

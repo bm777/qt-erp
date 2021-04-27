@@ -49,7 +49,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.name
             color: "#ff4285f4"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -63,7 +63,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.type
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -77,7 +77,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.box
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -91,7 +91,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.town
             color: "#666666"
-            font { family: f; bold: false; italic: true}
+            font { family: f; bold: false; italic: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -105,7 +105,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.tel
             color: "#666666"
-            font { family: f; bold: false; italic: true}
+            font { family: f; bold: false; italic: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -119,7 +119,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.mail
             color: "#666666"
-            font { family: f; bold: false; italic: true}
+            font { family: f; bold: false; italic: true; pointSize: 12}
         }
     }
     Rectangle {
@@ -133,7 +133,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.site
             color: "#666666"
-            font { family: f; bold: false; italic: true}
+            font { family: f; bold: false; italic: true; pointSize: 12}
         }
     }
     Rectangle {
@@ -147,7 +147,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.rmq
             color: "#666666"
-            font { family: f; bold: false; italic: true}
+            font { family: f; bold: false; italic: true; pointSize: 15}
         }
     }
 

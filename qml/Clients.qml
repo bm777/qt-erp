@@ -23,7 +23,7 @@ Item {
             text: "Enregistrer un nouveau client"
             anchors.verticalCenter: parent.verticalCenter
             x: parent.width * 1.5
-            font { family: f;}
+            font { family: f; pointSize: 15; bold: true}
             color: "#ff4285f4"
         }
         MouseArea{
@@ -44,20 +44,20 @@ Item {
     Text {
         text: "Recherche par"
         y: search.y + search.height / 3
-        x: search.x - search.width * 2.4/4
+        x: erp.width * 0.7
         color: "#80000000"
-        font { family: f}
+        font { family: f; pointSize: 15}
     }
     TextField {
         id: search
         width: erp.width * 0.12
         height: erp.height * 0.04
         y: client.y - height * 1.5
-        x: erp.width * 0.73
+        x: erp.width * 0.79
         placeholderText: "Réf. Ex: C00077"
         color: "black"
         horizontalAlignment: TextField.Center
-        font { family: f; pointSize: 10}
+        font { family: f; pointSize: 12; bold: true}
         background: Rectangle {
             anchors.fill: parent
             color: "transparent"

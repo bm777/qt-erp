@@ -43,10 +43,10 @@ Rectangle {
         text: root.text
         x: root.width * 0.3
         anchors.verticalCenter: parent.verticalCenter
-        font {family: f; pointSize: root.size}
+        font {family: f; pointSize: root.size; bold: true}
     }
     Text {
-        color: "#80ffffff"
+        color: "#ffffffff"
         text: root.description
         x: root.width * 0.3
         y: t.y + 30

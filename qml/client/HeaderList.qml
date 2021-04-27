@@ -17,7 +17,7 @@ Item {
     property string town: "Ville"
     property string tel: "Téléphone"
     property string mail: "eMail"
-    property string site: "Site internet"
+    property string site: "Site int."
     property string rmq: "Remarques"
 
 
@@ -36,7 +36,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             text: root.ref
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -50,7 +50,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             text: root.name
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -64,7 +64,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             text: root.type
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -78,7 +78,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             text: root.box
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -92,7 +92,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             text: root.town
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -106,7 +106,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             text: root.tel
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -120,7 +120,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             text: root.mail
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -134,7 +134,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             text: root.site
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -148,7 +148,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             text: root.rmq
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
 }

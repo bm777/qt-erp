@@ -22,7 +22,7 @@ Item {
             text: "Enregistrer un nouveau produit"
             anchors.verticalCenter: parent.verticalCenter
             x: parent.width * 1.5
-            font { family: f;}
+            font { family: f; pointSize: 15; bold: true}
             color: "#ff4285f4"
         }
         MouseArea{
@@ -38,30 +38,30 @@ Item {
             }
         }
     }
-    Text {
+    Text {id: label
         text: "Recherche par"
-        y: search.y + search.height / 3
-        x: search.x - search.width * 2.4/4
+        y: 40 * 0.6
+        x: search.x - search.width + 40
         color: "#80000000"
-        font { family: f}
+        font { family: f; pointSize: 15}
     }
     TextField {
         id: search
         width: erp.width * 0.12
-        height: erp.height * 0.04
-        y: product.y - height * 1.5
-        x: erp.width * 0.73
+        height: erp.height * 0.07
+        y: 40 * 0.6 - label.height
+        x: erp.width * 0.72
         placeholderText: "Réf. Ex: P00077"
         color: "black"
         horizontalAlignment: TextField.Center
-        font { family: f; pointSize: 10}
+        font { family: f; pointSize: 12; bold: true}
         background: Rectangle {
             anchors.fill: parent
             color: "transparent"
 //                border.color: "lightgray"
         }
-        Rectangle{
-            y: parent.height * 0.8
+        Rectangle {
+            y: parent.height * 0.65
             width: parent.width
             height: 1; color: "lightgray"
         }
