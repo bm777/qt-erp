@@ -111,14 +111,14 @@ class Worker(QObject):
     @Slot(str, str, str, str, str, str, str, result=bool)
     def update_facture(self, ref, client_id, type, date, delay, paiement, remise):
         fac = Facture(self.path)
-        update = f"UPDATE Facture set client_id='{client_id}',type='{type}',date='{date}',delay='{delay}',paiement='{paiement}',remise={float(remise)} WHERE ref='{ref}'"
+        update = f"UPDATE Facture set type='{type}',date='{date}',delay='{delay}',paiement='{paiement}',remise={float(remise)} WHERE ref='{ref}'"
         fac.update(update)
         return True
 
-    @Slot(str, str, str, str, str, str, str, result=bool)
+    @Slot(str, int, str, str, str, str, float, result=bool)
     def insert_facture(self, ref, client_id, type, date, delay, paiement, remise):
         fact = Facture(self.path)
-        sql_insert = f"INSERT INTO Facture (ref,client_id,type,date,delay,paiement,remise) VALUES ('{ref}','{client_id}','{type}','{date}',{delay},'{paiement}',{float(remise)})"
+        sql_insert = f"INSERT INTO Facture (ref,client_id,type,date,delay,paiement,remise) VALUES ('{ref}',{client_id},'{type}','{date}',{delay},'{paiement}',{float(remise)})"
         fact.insert(sql_insert)
         return True
 
@@ -139,19 +139,30 @@ class Worker(QObject):
     @Slot(str, result=int)
     def select_facture_id(self, ref):
         fac = Facture(self.path)
-        select = f"SELECT id FROM Facture WHERE ref='{(ref)}'"
+        select = f"SELECT id FROM Facture WHERE ref='{ref}'"
         result = fac.select(select)
         if(result == []):
+            result = 0
+        else:
+            result = result
+        return result
+
+    @Slot(str, result=int)
+    def select_produit_id(self, desc):
+        pdt = Produit(self.path)
+        select = f"SELECT id FROM Produit WHERE description='{desc}'"
+        result = pdt.select(select)
+        if (result == []):
             result = 0
         else:
             result = result[0][0]
         return result
 
     @Slot(str, result=int)
-    def select_produit_id(self, desc):
-        pdt = Produit(self.path)
-        select = f"SELECT id FROM Produit WHERE description='{(desc)}'"
-        result = pdt.select(select)
+    def select_client_id(self, ref):
+        clt = Facture(self.path)
+        select = f"SELECT id FROM Client WHERE ref='{ref}'"
+        result = clt.select(select)
         if (result == []):
             result = 0
         else:

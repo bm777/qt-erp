@@ -129,7 +129,9 @@ Window {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        bridge.insert_facture(input_ref.gettext,input_client.gettext,root.code,input_emission.gettext,input_delay.gettext,input_paiment.gettext,input_discount.gettext)
+                        var clt = bridge.select_client_id(input_client.gettext)
+                        print(input_client.gettext, clt)
+                        bridge.insert_facture(input_ref.gettext,clt,root.code,input_emission.gettext,input_delay.gettext,input_paiment.gettext,input_discount.gettext)
                         root.close()
                     }
                 }
