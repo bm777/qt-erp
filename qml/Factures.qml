@@ -24,7 +24,7 @@ Item {
             text: " Facture"
             anchors.verticalCenter: parent.verticalCenter
             x: parent.width * 1.5
-            font { family: f;}
+            font { family: f; pointSize: 15; bold: true}
             color: "#ff4285f4"
         }
         MouseArea{
@@ -38,7 +38,7 @@ Item {
 //                    if(component.status == Component.Error){
 //                        print("Error loading component : ", component.errorString())
 //                    }
-                win.ref = "F000" + bridge.produit_last_id("SELECT id FROM Facture")
+                win.ref =  "F000" +bridge.produit_last_id("SELECT id FROM Facture")
                 win.show()
             }
         }
@@ -61,7 +61,7 @@ Item {
             text: "Proforma"
             anchors.verticalCenter: parent.verticalCenter
             x: parent.width * 1.5
-            font { family: f;}
+            font { family: f;pointSize: 15; bold: true}
             color: "#ff4285f4"
         }
         MouseArea{
@@ -81,30 +81,30 @@ Item {
         }
     }
 
-    Text {
+    Text {id: label
         text: "Recherche par"
-        y: search.y + search.height / 3
-        x: search.x - search.width * 2.4/4
+        y: 40 * 0.6
+        x: search.x - search.width
         color: "#80000000"
-        font { family: f}
+        font { family: f; pointSize: 15}
     }
     TextField {
         id: search
         width: erp.width * 0.12
         height: erp.height * 0.04
-        y: facture.y - height * 1.5
-        x: erp.width * 0.73
+        y: 40 * 0.6 - label.height
+        x: erp.width * 0.71
         placeholderText: "Réf. Ex: F00077"
         color: "black"
         horizontalAlignment: TextField.Center
-        font { family: f; pointSize: 10}
+        font { family: f; pointSize: 12; bold: true}
         background: Rectangle {
             anchors.fill: parent
             color: "transparent"
 //                border.color: "lightgray"
         }
         Rectangle{
-            y: parent.height * 0.8
+            y: parent.height
             width: parent.width
             height: 1; color: "lightgray"
         }

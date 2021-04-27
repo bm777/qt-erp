@@ -42,6 +42,7 @@ Item {
                 onExited: {
                     if(root.btn_text === "Annuler") root.btn_text_color = "#ffffff";
                     if(root.btn_text === "Enregistrer") root.btn_text_color = "#ffffff";
+                    root.btn_text_color = "#ffffff";
                 }
 
             }

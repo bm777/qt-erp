@@ -23,7 +23,7 @@ class Worker(QObject):
     def __init__(self):
         QObject.__init__(self)
         self._data = "data from worker"
-        self.path = "batabase.db"
+        self.path = "database.db"
 
     def setProduit(self, tmp):
         if (self._data != tmp):

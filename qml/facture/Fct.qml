@@ -61,7 +61,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.type
             color: "#ff4285f4"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -75,7 +75,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.emission
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -89,7 +89,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.delay
             color: "#666666"
-            font { family: f; bold: true}
+            font { family: f; bold: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -103,7 +103,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.paiment
             color: "#666666"
-            font { family: f; bold: false; italic: true}
+            font { family: f; bold: false; italic: true; pointSize: 15}
         }
     }
     Rectangle {
@@ -117,7 +117,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             text: root.discount
             color: "#666666"
-            font { family: f; bold: false; italic: true}
+            font { family: f; bold: false; italic: true; pointSize: 15}
         }
     }
 

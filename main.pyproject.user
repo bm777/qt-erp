@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.14.2, 2021-04-26T18:21:15. -->
+<!-- Written by QtCreator 4.14.2, 2021-04-27T17:38:46. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -748,6 +748,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">facturePF0000</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/wi/qt-erp/pdf/facturePF0000.pdf</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/wi/qt-erp/pdf/facturePF0000.pdf</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{68f7ac57-2958-438c-b167-37b200ccc987}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\wi\qt-erp\pdf\facturePF0000.pdf</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -819,6 +820,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">result</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/wi/qt-erp/pdf/result.pdf</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/wi/qt-erp/pdf/result.pdf</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{68f7ac57-2958-438c-b167-37b200ccc987}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\wi\qt-erp\pdf\result.pdf</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -890,6 +892,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">factureF0001</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/wi/qt-erp/pdf/factureF0001.pdf</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/wi/qt-erp/pdf/factureF0001.pdf</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{68f7ac57-2958-438c-b167-37b200ccc987}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\wi\qt-erp\pdf\factureF0001.pdf</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -961,6 +964,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">facturePF0003</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/wi/qt-erp/pdf/facturePF0003.pdf</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/wi/qt-erp/pdf/facturePF0003.pdf</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{68f7ac57-2958-438c-b167-37b200ccc987}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\wi\qt-erp\pdf\facturePF0003.pdf</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -1104,6 +1108,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">invoice2</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/wi/qt-erp/pdf/invoice.pdf</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/wi/qt-erp/pdf/invoice.pdf</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{68f7ac57-2958-438c-b167-37b200ccc987}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\wi\qt-erp\pdf\invoice.pdf</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -1175,6 +1180,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">facturePF0002</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/wi/qt-erp/pdf/facturePF0002.pdf</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/wi/qt-erp/pdf/facturePF0002.pdf</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{68f7ac57-2958-438c-b167-37b200ccc987}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\wi\qt-erp\pdf\facturePF0002.pdf</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -1246,6 +1252,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Generate</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/wi/qt-erp/printer/Generate.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/wi/qt-erp/printer/Generate.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{68f7ac57-2958-438c-b167-37b200ccc987}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\wi\qt-erp\printer\Generate.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -1317,6 +1324,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">__init__2</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/Users/wi/qt-erp/printer/__init__.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/wi/qt-erp/printer/__init__.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{68f7ac57-2958-438c-b167-37b200ccc987}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\wi\qt-erp\printer\__init__.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>

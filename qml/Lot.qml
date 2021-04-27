@@ -17,7 +17,7 @@ Item {
         color: "#eeeeee"
         border.color: "black"
     }
-    Rectangle {
+    Rectangle {id: frame
         anchors.centerIn: parent
         width: parent.width * 0.9
         height: parent.height * 0.95
@@ -32,13 +32,13 @@ Item {
         Text {
             id: id_value
             text: "("+ root.qte +")"
-            font {family: f; pointSize: 15; bold: true}
+            font {family: f; pointSize: 10; bold: true}
             x: id_name.width + 20
         }
 
 
        Rectangle {
-           x : id_value.x + id_value.width + 20
+           x : frame.x + frame.width + 1
            width: closed.width * 2
            height: closed.height
            border.color: "red"

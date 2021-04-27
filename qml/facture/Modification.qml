@@ -11,8 +11,8 @@ Window {
     visible: true
 
     Component.onCompleted: {
-            x = Screen.width / 2 - width / 2
-            y = Screen.height / 2 - height / 2
+            x = 0
+            y = 0
 
         }
 
@@ -209,7 +209,7 @@ Window {
             anchors.horizontalCenter: parent.horizontalCenter
 
             BtnF {
-                btn_text: "Annuler"
+                btn_text: "Quitter"
                 size: 15
                 btn_color: "lightgray"
                 btn_text_color: "#ff4285f4"
