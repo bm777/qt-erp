@@ -46,11 +46,11 @@ Rectangle {
         font {family: f; pointSize: root.size; bold: true}
     }
     Text {
-        color: "#ffffffff"
+        color: "#ffffff"
         text: root.description
         x: root.width * 0.3
         y: t.y + 30
-        font {family: f; pointSize: root.size / 2}
+        font {family: f; pointSize: root.size / 2; bold: true}
     }
     Rectangle {
         id: effect

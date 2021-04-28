@@ -16,7 +16,7 @@ Rectangle {
         text: label
         anchors.verticalCenter: parent.verticalCenter
         x: parent.width * 0.08
-        font { family: f; pointSize: 10}
+        font { family: f; pointSize: 10; bold: true}
         color: "#ff4285f4"
     }
 

@@ -5,7 +5,7 @@ import QtQuick.Window 2.6
 
 Window {
     id: root
-    width: 900
+    width: 980
     height: 800
 
     Component.onCompleted: {

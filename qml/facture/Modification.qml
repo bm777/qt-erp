@@ -134,6 +134,21 @@ Window {
                 return tmp
             }
         }
+        Timer {
+            id: full_combo
+            running: root.visible
+            repeat: true
+            interval: 1000
+            onTriggered: {
+                var l = bridge.select_produit()
+                var tmp = []
+                for(var i=0; i<l.length; i++){
+                    tmp.push(l[i][2])
+                }
+                comb.model = tmp
+            }
+        }
+
         Spin {
             id: spin
             x: comb.x + comb.width + 20
@@ -151,9 +166,12 @@ Window {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    print(comb.currentText)
+
                     var produit_id = bridge.select_produit_id(comb.currentText)
-                    bridge.insert_pf(produit_id, facture_id, spin.val)
+                    var f_id = bridge.select_facture_id(input_ref.gettext)
+                    print(produit_id, [bridge.select_facture_id(input_ref.gettext),facture_id], spin.val)
+                    bridge.insert_pf(produit_id, f_id, spin.val)
+
                 }
             }
         }
@@ -193,7 +211,9 @@ Window {
                 repeat: true
                 interval: 1000
                 onTriggered: {
-                    model_lot.model = bridge.select_pf(facture_id)
+//                    var f_id = bridge.select_facture_id(input_ref.gettext)
+//                    print(input_ref.gettext)
+                    model_lot.model = bridge.select_pf(input_ref.gettext)
 
                 }
             }
