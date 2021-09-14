@@ -3,5 +3,5 @@
 
 Part 1 : GS/F
 Part 2 : ERP/CRM
-Part 3 : DTI-GMAO
-Part 4 : DTI-MCar
+Part 3 : feature 3
+Part 4 : eature 4
